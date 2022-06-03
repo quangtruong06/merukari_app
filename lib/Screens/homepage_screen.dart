@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget{
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
               contentPadding: EdgeInsets.all(14.0),
-              hintText: ('なにをお探しですか？'),
+              hintText: ('にをお探しですか？'),
               hintStyle: TextStyle(fontSize: 14),
               filled: true
             ),
