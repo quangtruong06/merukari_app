@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../Utils/DataSearch.dart';
+
 //これはホームページ
-class HomePage extends StatelessWidget{
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,30 +12,37 @@ class HomePage extends StatelessWidget{
         backgroundColor: Colors.white,
         title: Container(
           height: 35,
-          decoration: BoxDecoration(
-            color: Colors.grey,
-            border: Border.all(color: Colors.grey,width: 1.0),
-            borderRadius: BorderRadius.circular(30.0)
-          ),
           child: TextField(
-            textAlign: TextAlign.start,
+            onTap: () {
+              // FocusScope.of(context).requestFocus(FocusNode());
+              showSearch(context: context, delegate: DataSearch());
+            },
             decoration: InputDecoration(
-              border: InputBorder.none,
-              errorBorder: InputBorder.none,
-              enabledBorder: InputBorder.none,
-              focusedBorder: InputBorder.none,
-              contentPadding: EdgeInsets.all(14.0),
-              hintText: ('にをお探しですか？'),
-              hintStyle: TextStyle(fontSize: 14),
-              filled: true
-            ),
+              prefixIcon: Icon(Icons.search,color: Colors.black54,size: 16,),
+                filled: true,
+                fillColor: Colors.grey,
+                contentPadding: EdgeInsets.only(left: 8, right: 8),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    borderRadius: BorderRadius.circular(16)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    borderRadius: BorderRadius.circular(16)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(1)),
+                hintText: "なにをお探しですか?",
+                hintStyle: TextStyle(fontSize: 12)),
           ),
         ),
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.home,color: Colors.black,))
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.check,
+                color: Colors.black,
+              ))
         ],
       ),
     );
   }
-
 }
