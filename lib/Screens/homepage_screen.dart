@@ -32,6 +32,7 @@ class HomePage extends StatelessWidget {
                     OutlineInputBorder(borderRadius: BorderRadius.circular(1)),
                 hintText: "なにをお探しですか?",
                 hintStyle: TextStyle(fontSize: 12)),
+            cursorWidth: 0,
           ),
         ),
         actions: [
