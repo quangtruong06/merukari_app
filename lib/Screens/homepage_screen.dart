@@ -70,6 +70,7 @@ class _HomePage extends State<HomePage> {
                   icon: Icon(
                     Icons.check,
                     color: Colors.black,
+                    size: 30,
                   ))
             ],
             bottom: TabBar(

@@ -85,8 +85,6 @@ class NotificationsPage extends StatelessWidget {
     );
   }
 }
-
-//ニュースリスト Build NewPage in Notifi
 class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -122,8 +120,6 @@ class NewsList extends StatelessWidget {
     );
   }
 }
-
-//知らせリスト Build Notifi List
 class NotificationsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
