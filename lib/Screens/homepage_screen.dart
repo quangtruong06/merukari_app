@@ -5,6 +5,7 @@ import 'package:merukari_app/Mini_Screens/mairisuto_screen.dart';
 import 'package:merukari_app/Mini_Screens/pikkuappu_screen.dart';
 import 'package:merukari_app/Mini_Screens/shoppu_screen.dart';
 import 'package:merukari_app/Mini_Screens/susume_screen.dart';
+import '../Utils/CustomColor.dart';
 import '../Utils/DataSearch.dart';
 
 class HomePage extends StatefulWidget {
@@ -75,10 +76,10 @@ class _HomePage extends State<HomePage> {
             ],
             bottom: TabBar(
               tabs: tabMaker(),
-              indicatorColor: Colors.red,
+              indicatorColor: CustomColor.setAppColor,
               isScrollable: true,
               indicatorWeight: 3,
-              labelColor: Colors.red,
+              labelColor: CustomColor.setAppColor,
               labelStyle: TextStyle(fontWeight: FontWeight.bold),
               unselectedLabelColor: Colors.black54,
               unselectedLabelStyle:

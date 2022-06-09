@@ -6,6 +6,7 @@ import 'package:merukari_app/Screens/homepage_screen.dart';
 import 'package:merukari_app/Screens/notifications_screen.dart';
 import 'package:merukari_app/Screens/profile_screen.dart';
 import 'package:merukari_app/Screens/sell_screen.dart';
+import 'package:merukari_app/Utils/CustomColor.dart';
 class MainScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MainScreenState();
@@ -42,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
         selectedItemColor: Colors.red,
         unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-        selectedIconTheme: IconThemeData(color: Colors.red),
+        selectedIconTheme: IconThemeData(color: CustomColor.setAppColor),
         unselectedItemColor: Colors.black54,
         unselectedIconTheme: IconThemeData(color: Colors.black54,),
         currentIndex: pageIndex,

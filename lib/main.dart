@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "メルカリ",
       home: MainScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 
