@@ -19,33 +19,32 @@ class Susume extends StatelessWidget {
         SliverToBoxAdapter(
             child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          child: Column(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Utils.customText(
-                      text: "いいね！した商品",
-                      fontWeight: FontWeight.bold,
-                      size: 16.0,
-                      color: Colors.black),
-                  Utils.customText(
-                      text: "すべて見る",
-                      fontWeight: FontWeight.normal,
-                      size: 16.0,
-                      color: Colors.blue),
-                ],
-              ),
-              SliverGrid(delegate: SliverChildBuilderDelegate((BuildContext context,int index){
-                return Container(color: Colors.pink,);
-              },childCount: 10  ), gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10
-              ))
+              Utils.customText(
+                  text: "いいね！した商品",
+                  fontWeight: FontWeight.bold,
+                  size: 16.0,
+                  color: Colors.black),
+              Utils.customText(
+                  text: "すべて見る ＞",
+                  fontWeight: FontWeight.normal,
+                  size: 16.0,
+                  color: Colors.blue),
             ],
           ),
-        ))
+        )),
+        SliverGrid(
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
+              return Container(
+                color: Colors.pink,
+              );
+            }, childCount: 3),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, crossAxisSpacing: 4,
+            ))
       ],
     );
   }
