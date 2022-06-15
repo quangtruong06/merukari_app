@@ -135,8 +135,8 @@ class NotificationsList extends StatelessWidget {
               height: 90,
               child: Row(
                 children: [
-                  Image.network(
-                      "https://avatars.githubusercontent.com/u/8133808?s=200&v=4",
+                  Image.asset(
+                      "assets/images/mercari_icon.png",
                       width: 50,
                       fit: BoxFit.cover),
                   Flexible(
