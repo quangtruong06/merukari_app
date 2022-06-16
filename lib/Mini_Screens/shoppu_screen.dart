@@ -3,7 +3,7 @@ import 'package:merukari_app/Utils/greySpace.dart';
 import 'package:merukari_app/constants.dart';
 
 import '../Utils/Utils.dart';
-import '../Utils/imageItem.dart';
+import '../Utils/gridList.dart';
 
 class Shoppu extends StatelessWidget {
   List sliverListItem = ["いいね！閲覧履歴", "注文履歴", "フォロー中のショップ"];
@@ -68,7 +68,6 @@ class Shoppu extends StatelessWidget {
     );
   }
 }
-
 class categoriBox extends StatelessWidget {
   List logo = [
     "assets/logo/categori1.png",
@@ -157,27 +156,7 @@ class sliverList extends StatelessWidget {
   }
 }
 
-class gridList extends StatelessWidget {
-  final int itemGridCount;
-  const gridList({Key? key, required this.itemGridCount}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-      sliver: SliverGrid(
-          delegate:
-          SliverChildBuilderDelegate((BuildContext context, int index) {
-            return ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: imageItem(itemValue: 4200,imgSize: defaultImageSize,)
-            );
-          }, childCount: itemGridCount),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3, crossAxisSpacing: 3, mainAxisSpacing: 3)),
-    );
-  }
-}
 
 class tittleBox extends StatelessWidget {
   tittleBox({Key? key, required this.tittleList}) : super(key: key);

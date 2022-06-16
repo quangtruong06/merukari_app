@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'Utils.dart';
 
 class imageItem extends StatelessWidget{
-   int imgSize ;
+   double imgSize ;
    int itemValue;
   imageItem({Key? key,required this.imgSize,required this.itemValue}) : super(key: key);
 

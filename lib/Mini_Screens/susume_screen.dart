@@ -4,6 +4,7 @@ import 'package:merukari_app/Utils/utils.dart';
 import 'package:merukari_app/constants.dart';
 
 import '../Utils/greySpace.dart';
+import '../Utils/gridList.dart';
 
 class Susume extends StatelessWidget {
   const Susume({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class Susume extends StatelessWidget {
             )),
           ),
           const gridList(
-            itemCount: 3,
+            itemGridCount: 3,
           ),
           greySpace(
             paddingTop: 10,
@@ -70,11 +71,11 @@ class Susume extends StatelessWidget {
             ),
           ),
           const tittleBox(tittleList: "プレイテーション４", tittleDetail: "家庭用ゲームソフト"),
-          const gridList(itemCount: 6),
+          const gridList(itemGridCount: 6,),
           tittleBox(tittleList: "ドラゴンクエスト", tittleDetail: "家庭用ゲームソフト"),
-          gridList(itemCount: 6),
+          gridList(itemGridCount: 6),
           tittleBox(tittleList: "ペルソナ５", tittleDetail: "家庭用ゲームソフト"),
-          gridList(itemCount: 6),
+          gridList(itemGridCount: 6),
           greySpace(paddingTop: 10.0),
           SliverPadding(
             padding: const EdgeInsets.only(bottom: defaultPadding),
@@ -95,34 +96,13 @@ class Susume extends StatelessWidget {
               ),
             ),
           ),
-          gridList(itemCount: 200),
+          gridList(itemGridCount: 200),
         ],
       ),
     );
   }
 }
 
-class gridList extends StatelessWidget {
-  final int itemCount;
-  const gridList({Key? key, required this.itemCount}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-      sliver: SliverGrid(
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            return ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-              child: imageItem(itemValue: 4200,imgSize: defaultImageSize,)
-            );
-          }, childCount: itemCount),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3, crossAxisSpacing: 3, mainAxisSpacing: 3)),
-    );
-  }
-}
 
 class tittleBox extends StatelessWidget {
   const tittleBox(
