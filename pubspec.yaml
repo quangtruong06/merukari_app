@@ -64,6 +64,13 @@ flutter:
     - assets/images/susume1.png
     - assets/images/iine_img1.jpg
     - assets/images/mercari_icon.png
+    - assets/images/shopimg.jpg
+    - assets/logo/categori3.png
+    - assets/logo/categori1.png
+    - assets/logo/categori2.png
+    - assets/logo/categori4.png
+    - assets/logo/categori5.png
+    - assets/logo/categori6.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
