@@ -27,7 +27,7 @@ class Pikkuappu extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.all(16.0),
                     width: size.width,
-                    height: size.height / 3.3,
+                    height: 275,
                     decoration: const BoxDecoration(
                         gradient: LinearGradient(
                       begin: Alignment.topLeft,
@@ -54,11 +54,36 @@ class Pikkuappu extends StatelessWidget {
                           "夏になると欲しくなるかごバッグやメッシュ、麻、キャンバス、クリアバッグなど涼しげな素材のバッグを集めました。",size: 10.0
                         ),
                         SizedBox(height: 20,),
-                        Wrap(
-                          direction: Axis.horizontal,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              imageItem(imgSize: bigImg, itemValue: 2500),
-                              gridViewer()
+                              Container(
+                                  width: size.width/2 - 16,
+                                  child: imageItem(imgSize: bigImg, itemValue: 2500)),
+                              Container(
+                                width: size.width/2 - 16,
+                                child: Wrap(
+                                  spacing: 6,
+                                  runSpacing: 6,
+                                  children: [
+                                    Container(
+                                      width: size.width/4 - 13,
+                                        child: imageItem(imgSize: bigImg, itemValue: 2500)),
+                                    Container(
+                                        width: size.width/4 - 13,
+                                        child: imageItem(imgSize: bigImg, itemValue: 2500)),
+                                    Container(
+                                        width: size.width/4 - 13,
+                                        child: imageItem(imgSize: bigImg, itemValue: 2500)),
+                                    Container(
+                                        width: size.width/4 - 13,
+                                        child: imageItem(imgSize: bigImg, itemValue: 2500)),
+
+                                  ],
+                                ),
+                              )
+                              // gridViewer()
                             ],
                         )
                       ],
