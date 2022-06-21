@@ -65,6 +65,11 @@ flutter:
     - assets/images/iine_img1.jpg
     - assets/images/mercari_icon.png
     - assets/images/shopimg.jpg
+    - assets/images/event_bigImg.png
+    - assets/images/sell1.png
+    - assets/images/sell2.png
+    - assets/images/sell2.png
+    - assets/images/goodsSend/send1.png
     - assets/logo/categori3.png
     - assets/logo/categori1.png
     - assets/logo/categori2.png
