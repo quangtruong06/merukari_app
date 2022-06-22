@@ -62,20 +62,24 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/susume1.png
+    - assets/images/barcode.png
     - assets/images/iine_img1.jpg
     - assets/images/mercari_icon.png
     - assets/images/shopimg.jpg
     - assets/images/event_bigImg.png
     - assets/images/sell1.png
     - assets/images/sell2.png
-    - assets/images/sell2.png
-    - assets/images/goodsSend/send1.png
+    - assets/images/goodsSend/sendBG.png
+    - assets/images/goodsSend/send_img1.png
+    - assets/images/goodsSend/send_img2.png
+    - assets/images/goodsSend/send_img3.png
     - assets/logo/categori3.png
     - assets/logo/categori1.png
     - assets/logo/categori2.png
     - assets/logo/categori4.png
     - assets/logo/categori5.png
     - assets/logo/categori6.png
+    - assets/logo/merupay_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
