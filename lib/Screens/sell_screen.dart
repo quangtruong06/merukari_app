@@ -41,12 +41,12 @@ class SellPage extends StatelessWidget {
                     height: 10,
                   ),
                   Wrap(
-                    spacing: 13,
+                    spacing: 5,
                     direction: Axis.horizontal,
                     children: [
                       Container(
-                        height: 80,
-                        width: 80,
+                        height: size.width/4-defaultPadding*1.5,
+                        width: size.width/4-defaultPadding*1.5,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(5)),
@@ -66,8 +66,8 @@ class SellPage extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 80,
-                        width: 80,
+                        height: size.width/4-defaultPadding*1.5,
+                        width: size.width/4-defaultPadding*1.5,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(5)),
@@ -87,8 +87,8 @@ class SellPage extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 80,
-                        width: 80,
+                        height: size.width/4-defaultPadding*1.5,
+                        width: size.width/4-defaultPadding*1.5,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(5)),
@@ -111,8 +111,8 @@ class SellPage extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 80,
-                        width: 80,
+                        height: size.width/4-defaultPadding*1.5,
+                        width: size.width/4-defaultPadding*1.5,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(5)),

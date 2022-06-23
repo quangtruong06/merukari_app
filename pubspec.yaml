@@ -64,10 +64,16 @@ flutter:
     - assets/images/susume1.png
     - assets/images/barcode.png
     - assets/images/iine_img1.jpg
+    - assets/images/daiso_img.png
     - assets/images/mercari_icon.png
     - assets/images/shopimg.jpg
+    - assets/images/map_barcode.png
+    - assets/images/card_barcode.png
+    - assets/images/transfer_barcode.png
+    - assets/images/ads_barcode.png
     - assets/images/event_bigImg.png
     - assets/images/sell1.png
+    - assets/images/profile_icon.png
     - assets/images/sell2.png
     - assets/images/goodsSend/sendBG.png
     - assets/images/goodsSend/send_img1.png
@@ -80,6 +86,9 @@ flutter:
     - assets/logo/categori5.png
     - assets/logo/categori6.png
     - assets/logo/merupay_logo.png
+    - assets/logo/alphaP.png
+    - assets/logo/qrcode_logo.png
+    - assets/logo/id_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -8,22 +8,27 @@ class ProfilePage extends StatelessWidget{
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            Center(
-              child: Column(
-                children: [
-                  SizedBox(height: 20,),
-                  MaterialButton(onPressed: (){},
-                  shape: CircleBorder(),
-                  color: Colors.red,height: 60,),
-                  SizedBox(height: 10,),
-                  Utils.customText(text: "チュオン >",color: Colors.black,fontWeight: FontWeight.bold,size: 16.0)
-                ],
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 20,),
+                    MaterialButton(onPressed: (){},
+                      shape: CircleBorder(),
+                      height: 50,
+                    child: Image.asset("assets/images/profile_icon.png",height: 50,width: 50,fit: BoxFit.cover,)),
+                    SizedBox(height: 10,),
+                    Utils.customText(text: "チュオン",color: Colors.black,fontWeight: FontWeight.bold,size: 16.0),
+
+                  ],
+                ),
               ),
             )
           ],
-        ),
+        )
       ),
     );
   }
