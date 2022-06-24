@@ -307,6 +307,45 @@ class payMethod extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String,dynamic>> paymethodData=[
+      {
+        "subtile":"購入金額を\n翌月払う",
+        "name" : "メルペイスマート払い",
+        "color":Colors.lightBlueAccent,
+        "icon": Icons.calendar_month_rounded,
+      },
+      {
+        "subtile":"購入金額を\n月々に分ける",
+        "name" : "定額払い",
+        "color":Color(0xFF0b7fab),
+        "icon": Icons.bar_chart_rounded,
+      },
+      {
+        "subtile":"メルペイ残高に\nチャージをする",
+        "name" : "銀行口座登録",
+        "color":Color(0xFF1ba39c),
+        "icon": Icons.house_rounded,
+      },
+      {
+        "subtile":"安心安全・より便利に\nメルペイを使う",
+        "name" : "本人確認",
+        "color":Colors.black54,
+        "icon": Icons.person,
+      },
+      {
+        "subtile":"購入金額を\n翌月払う",
+        "name" : "メルペイスマート払い",
+        "color":Colors.lightBlueAccent,
+        "icon": Icons.calendar_month_rounded,
+      },
+      {
+        "subtile":"購入金額を\n翌月払う",
+        "name" : "メルペイスマート払い",
+        "color":Colors.lightBlueAccent,
+        "icon": Icons.calendar_month_rounded,
+      },
+
+    ];
     List subtile = [
       "購入金額を\n翌月払う",
       "購入金額を\n月々に分ける",
