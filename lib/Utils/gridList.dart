@@ -14,7 +14,7 @@ class gridList extends StatelessWidget {
       sliver: SliverGrid(
           delegate:
           SliverChildBuilderDelegate((BuildContext context, int index) {
-            return imageItem(itemValue: 4200,imgSize: defaultImageSize,);
+            return imageItem(itemValue: 4200,imgSize: defaultImageSize,img: "assets/images/ps4_img.png",);
           }, childCount: itemGridCount),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3, crossAxisSpacing: 3, mainAxisSpacing: 3)),

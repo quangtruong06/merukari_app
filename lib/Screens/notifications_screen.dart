@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:merukari_app/Utils/utils.dart';
 
+import '../constants.dart';
+
 
 // これはお知らせのページ
 class NotificationsPage extends StatelessWidget {
@@ -96,7 +98,7 @@ class NewsList extends StatelessWidget {
             return Container(
               decoration: BoxDecoration(
                   border: Border(
-                      bottom: BorderSide(width: 1, color: Colors.black12))),
+                      bottom: BorderSide(width: 1, color: black12))),
               height: 90,
               child: Column(
                 children: [
@@ -131,7 +133,7 @@ class NotificationsList extends StatelessWidget {
             return Container(
               decoration: BoxDecoration(
                   border: Border(
-                      bottom: BorderSide(width: 1, color: Colors.black12))),
+                      bottom: BorderSide(width: 1, color: black12))),
               height: 90,
               child: Row(
                 children: [

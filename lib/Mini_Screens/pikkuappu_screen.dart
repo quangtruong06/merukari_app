@@ -71,7 +71,7 @@ class Pikkuappu extends StatelessWidget {
                                 child: imageItem(
                                     imgSize:
                                         size.width / 2 - defaultPadding * 3.5,
-                                    itemValue: 2500),
+                                    itemValue: 2500,img: "assets/images/ps4_img.png",),
                               ),
                               Expanded(
                                 child: Wrap(
@@ -83,22 +83,22 @@ class Pikkuappu extends StatelessWidget {
                                         child: imageItem(
                                             imgSize: size.width / 4 -
                                                 defaultPadding * 2,
-                                            itemValue: 2500)),
+                                            itemValue: 2500,img: "assets/images/ps4_img.png")),
                                     Container(
                                         child: imageItem(
                                             imgSize: size.width / 4 -
                                                 defaultPadding * 2,
-                                            itemValue: 2500)),
+                                            itemValue: 2500,img: "assets/images/ps4_img.png")),
                                     Container(
                                         child: imageItem(
                                             imgSize: size.width / 4 -
                                                 defaultPadding * 2,
-                                            itemValue: 2500)),
+                                            itemValue: 2500,img: "assets/images/ps4_img.png")),
                                     Container(
                                         child: imageItem(
                                             imgSize: size.width / 4 -
                                                 defaultPadding * 2,
-                                            itemValue: 2500)),
+                                            itemValue: 2500,img: "assets/images/ps4_img.png")),
                                   ],
                                 ),
                               )
@@ -159,16 +159,16 @@ class pikkuappuList extends StatelessWidget {
               children: [
                 imageItem(
                     imgSize: size.width / 4 - defaultPadding,
-                    itemValue: 2500),
+                    itemValue: 2500,img: "assets/images/ps4_img.png"),
                 imageItem(
                     imgSize: size.width / 4 - defaultPadding,
-                    itemValue: 2500),
+                    itemValue: 2500,img: "assets/images/ps4_img.png"),
                 imageItem(
                     imgSize: size.width / 4 - defaultPadding,
-                    itemValue: 2500),
+                    itemValue: 2500,img: "assets/images/ps4_img.png"),
                 imageItem(
                     imgSize: size.width / 4 - defaultPadding,
-                    itemValue: 2500),
+                    itemValue: 2500,img: "assets/images/ps4_img.png"),
               ],
             ),
             SizedBox(

@@ -64,8 +64,9 @@ flutter:
     - assets/images/
     - assets/images/susume1.png
     - assets/images/barcode.png
-    - assets/images/iine_img1.jpg
+    - assets/images/iine_img.jpg
     - assets/images/daiso_img.png
+    - assets/images/ps4_img.png
     - assets/images/mercari_icon.png
     - assets/images/shopimg.jpg
     - assets/images/map_barcode.png
@@ -80,6 +81,18 @@ flutter:
     - assets/images/goodsSend/send_img1.png
     - assets/images/goodsSend/send_img2.png
     - assets/images/goodsSend/send_img3.png
+    - assets/images/goodsSend/send_img4.png
+    - assets/images/goodsSend/send_img5.png
+    - assets/images/goodsSend/send_img6.png
+    - assets/images/goodsSend/send_img7.png
+    - assets/images/goodsSend/send_img8.png
+    - assets/images/goodsSend/send_img9.png
+    - assets/images/goodsSend/send_img10.png
+    - assets/images/goodsSend/send_img11.png
+    - assets/images/goodsSend/send_img12.png
+    - assets/images/goodsSend/send_img13.png
+    - assets/images/goodsSend/send_img14.png
+    - assets/images/goodsSend/send_img15.png
     - assets/logo/categori3.png
     - assets/logo/categori1.png
     - assets/logo/categori2.png
@@ -90,6 +103,8 @@ flutter:
     - assets/logo/alphaP.png
     - assets/logo/qrcode_logo.png
     - assets/logo/id_logo.png
+    - assets/logo/mercari_icon.png
+    - assets/logo/d_point.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

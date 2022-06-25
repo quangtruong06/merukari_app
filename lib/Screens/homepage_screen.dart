@@ -34,7 +34,7 @@ class _HomePage extends State<HomePage> {
       initialIndex: 1,
       child: Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.white,
+            backgroundColor:white,
             title: Container(
               height: 35,
               child: TextField(

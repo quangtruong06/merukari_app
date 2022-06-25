@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:merukari_app/Utils/Utils.dart';
 import 'package:merukari_app/Utils/greySpace.dart';
+import 'package:merukari_app/Utils/text_next.dart';
 import 'package:merukari_app/constants.dart';
 
 class BarcodePage extends StatelessWidget {
@@ -11,11 +12,20 @@ class BarcodePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Colors.black12,
+        backgroundColor: black12,
         body: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-              child: barcodeContent(size: size),
+            SliverAppBar(
+              backgroundColor: setAppColor,
+              title: const Text("メルペイ"),
+              titleTextStyle: const TextStyle(
+                  fontWeight: FontWeight.bold, color: white, fontSize: 20),
+              centerTitle: true,
+              pinned: true,
+              expandedHeight: size.height/2.5,
+              flexibleSpace: FlexibleSpaceBar(
+                background: barcodeContent(size: size),
+              ),
             ),
             SliverPadding(
               padding: EdgeInsets.all(defaultPadding),
@@ -29,7 +39,7 @@ class BarcodePage extends StatelessWidget {
                         height: 80,
                         width: size.width / 3 - defaultPadding * 1.5,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: white,
                             borderRadius: BorderRadius.circular(5)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +61,7 @@ class BarcodePage extends StatelessWidget {
                         height: 80,
                         width: size.width / 3 - defaultPadding * 1.5,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: white,
                             borderRadius: BorderRadius.circular(5)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +83,7 @@ class BarcodePage extends StatelessWidget {
                         height: 80,
                         width: size.width / 3 - defaultPadding * 1.5,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: white,
                             borderRadius: BorderRadius.circular(5)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -177,7 +187,7 @@ class BarcodePage extends StatelessWidget {
                               height: 80,
                               width: size.width / 3 - defaultPadding * 1.5,
                               decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color: white,
                                   borderRadius: BorderRadius.circular(5)),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -197,7 +207,7 @@ class BarcodePage extends StatelessWidget {
                               height: 80,
                               width: size.width / 3 - defaultPadding * 1.5,
                               decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color: white,
                                   borderRadius: BorderRadius.circular(5)),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -219,7 +229,7 @@ class BarcodePage extends StatelessWidget {
                               height: 80,
                               width: size.width / 3 - defaultPadding * 1.5,
                               decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color: white,
                                   borderRadius: BorderRadius.circular(5)),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -276,27 +286,10 @@ class setteiList extends StatelessWidget {
       "事業者の方へ：メルペイ導入の申し込み",
     ];
     return SliverList(delegate: SliverChildBuilderDelegate((context,index){
-      return Container(
-        color: Colors.white,
-        padding: EdgeInsets.only(left: defaultPadding),
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: defaultPadding+4),
-          decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(width: 0.5,color: Colors.black12))
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Utils.customText(text: settei[index],size: 14.0),
-              Icon(Icons.navigate_next,color: Colors.black54,)
-            ],
-          ),
-        ),
-      );
+      return TextNext(text: settei[index],);
     },childCount: 4));
   }
 }
-
 class payMethod extends StatelessWidget {
   const payMethod({
     Key? key,
@@ -304,7 +297,6 @@ class payMethod extends StatelessWidget {
   }) : super(key: key);
 
   final Size size;
-
   @override
   Widget build(BuildContext context) {
     List<Map<String,dynamic>> paymethodData=[
@@ -333,59 +325,31 @@ class payMethod extends StatelessWidget {
         "icon": Icons.person,
       },
       {
-        "subtile":"購入金額を\n翌月払う",
-        "name" : "メルペイスマート払い",
-        "color":Colors.lightBlueAccent,
-        "icon": Icons.calendar_month_rounded,
+        "subtile":"スマホをかざして\n決済する方法",
+        "name" : "iD決済",
+        "color":Color(0xFF84A013),
+        "icon": Icons.credit_card,
       },
       {
-        "subtile":"購入金額を\n翌月払う",
-        "name" : "メルペイスマート払い",
-        "color":Colors.lightBlueAccent,
-        "icon": Icons.calendar_month_rounded,
+        "subtile":"コードを見せて\n決済する方法",
+        "name" : "コード決済",
+        "color":Color(0xFFDB5A6B),
+        "icon": Icons.qr_code_rounded,
       },
+      {
+        "subtile":"ネットショップでも\nメルペイが使える",
+        "name" : "ネット決済",
+        "color":Colors.orange,
+        "icon": Icons.shopping_cart,
+      },
+      {
+        "subtile":"メルペイ残高で\n寄付する",
+        "name" : "メルカリ寄付",
+        "color":Color(0xFFC93756),
+        "icon": Icons.android_outlined,
+      },
+    ];
 
-    ];
-    List subtile = [
-      "購入金額を\n翌月払う",
-      "購入金額を\n月々に分ける",
-      "メルペイ残高に\nチャージをする",
-      "安心安全・より便利に\nメルペイを使う",
-      "スマホをかざして\n決済する方法",
-      "コードを見せて\n決済する方法",
-      "ネットショップでも\nメルペイが使える",
-      "メルペイ残高で\n寄付する",
-    ];
-    List payMethod = [
-      "メルペイスマート払い",
-      "定額払い",
-      "銀行口座登録",
-      "本人確認",
-      "iD決済",
-      "コード決済",
-      "ネット決済",
-      "メルカリ寄付",
-    ];
-    List payColor = [
-      Colors.lightBlueAccent,
-      const Color(0xFF0b7fab),
-      Color(0xFF1ba39c),
-      Colors.black54,
-      Color(0xFFFFCD02),
-      Color(0xFFDB5A6B),
-      Colors.orange,
-      Color(0xFFC93756)
-    ];
-    List payIcon = [
-      Icons.calendar_month_rounded,
-      Icons.bar_chart_rounded,
-      Icons.house_rounded,
-      Icons.person,
-      Icons.credit_card,
-      Icons.qr_code_rounded,
-      Icons.shopping_cart,
-      Icons.android_outlined
-    ];
     return SliverPadding(
       padding: EdgeInsets.all(defaultPadding),
       sliver: SliverGrid(
@@ -393,19 +357,19 @@ class payMethod extends StatelessWidget {
               SliverChildBuilderDelegate((BuildContext context, int index) {
             return Container(
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                  color: white, borderRadius: BorderRadius.circular(5)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                       padding: EdgeInsets.all(defaultPadding),
                       child:
-                          Utils.customText(text: subtile[index], size: 13.0)),
+                          Utils.customText(text: paymethodData[index]["subtile"], size: 13.0)),
                   Expanded(
                       child: Container(
                     padding: EdgeInsets.symmetric(horizontal: defaultPadding),
                     decoration: BoxDecoration(
-                        color: payColor[index],
+                        color: paymethodData[index]["color"],
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(5),
                             bottomRight: Radius.circular(5))),
@@ -413,18 +377,18 @@ class payMethod extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Utils.customText(
-                            text: payMethod[index],
+                            text: paymethodData[index]["name"],
                             size: 11.0,
-                            color: Colors.white,
+                            color: white,
                             fontWeight: FontWeight.bold),
                         Container(
                           padding: EdgeInsets.all(2),
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: white,
                               borderRadius: BorderRadius.circular(5)),
                           child: Icon(
-                            payIcon[index],
-                            color: payColor[index],
+                            paymethodData[index]["icon"],
+                            color: paymethodData[index]["color"],
                             size: 20,
                           ),
                         )
@@ -444,7 +408,6 @@ class payMethod extends StatelessWidget {
     );
   }
 }
-
 class barcodeContent extends StatelessWidget {
   const barcodeContent({
     Key? key,
@@ -467,7 +430,7 @@ class barcodeContent extends StatelessWidget {
             padding: EdgeInsets.all(defaultPadding * 2),
             width: size.width * 0.9,
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(20.0)),
+                color: white, borderRadius: BorderRadius.circular(20.0)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -537,7 +500,7 @@ class barcodeContent extends StatelessWidget {
                           width: 60,
                           decoration: BoxDecoration(
                               border:
-                                  Border.all(color: Colors.black12, width: 1),
+                                  Border.all(color: black12, width: 1),
                               borderRadius: BorderRadius.circular(5)),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -555,7 +518,7 @@ class barcodeContent extends StatelessWidget {
                           width: 60,
                           decoration: BoxDecoration(
                               border:
-                                  Border.all(color: Colors.black12, width: 1),
+                                  Border.all(color: black12, width: 1),
                               borderRadius: BorderRadius.circular(5)),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -582,11 +545,11 @@ class barcodeContent extends StatelessWidget {
                   onPressed: () {},
                   icon: Icon(
                     Icons.add_circle,
-                    color: Colors.white,
+                    color: white,
                   ),
                   label: Utils.customText(
                       text: "残高にチャージ",
-                      color: Colors.white,
+                      color: white,
                       size: 10.0,
                       fontWeight: FontWeight.bold)),
               SizedBox(
@@ -606,12 +569,12 @@ class barcodeContent extends StatelessWidget {
                       children: [
                         Utils.customText(
                             text: "メルペイスマート払い",
-                            color: Colors.white,
+                            color: white,
                             size: 10.0,
                             fontWeight: FontWeight.bold),
                         Utils.customText(
                             text: "使える枠 ￥10,000",
-                            color: Colors.white,
+                            color: white,
                             size: 10.0)
                       ])),
             ],

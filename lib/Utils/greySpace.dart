@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:merukari_app/constants.dart';
 
 class greySpace extends StatelessWidget{
   final double paddingTop;
@@ -13,7 +14,7 @@ class greySpace extends StatelessWidget{
           width: size.width,
           height: 10,
           child: const DecoratedBox(decoration: BoxDecoration(
-              color: Colors.black12
+              color: black12
           ),),
         ),
       ),
