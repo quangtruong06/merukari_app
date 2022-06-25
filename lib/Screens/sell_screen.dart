@@ -22,116 +22,116 @@ class SellPage extends StatelessWidget {
           SliverToBoxAdapter(
             child: Container(
               color: black12,
-              padding: EdgeInsets.all(defaultPadding * 2),
+              padding: EdgeInsets.all(defaultPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ClipRRect(
                       borderRadius: BorderRadius.circular(5),
                       child: Image.asset("assets/images/event_bigImg.png")),
-                  SizedBox(
-                    height: defaultPadding * 2,
+                  Padding(
+                    padding: const EdgeInsets.only(top: padding8),
+                    child: Utils.customText(
+                        text: "出品へのショートカット",
+                        size: 13.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black54),
                   ),
-                  Utils.customText(
-                      text: "出品へのショートカット",
-                      size: 13.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Wrap(
-                    spacing: 5,
-                    direction: Axis.horizontal,
-                    children: [
-                      Container(
-                        height: size.width/4-defaultPadding*1.5,
-                        width: size.width/4-defaultPadding*1.5,
-                        decoration: BoxDecoration(
-                            color: white,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              size: 30,
-                              color: Colors.black87,
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Utils.customText(text: "写真を撮る", size: 11.0)
-                          ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: padding8),
+                    child: Wrap(
+                      spacing: 5,
+                      direction: Axis.horizontal,
+                      children: [
+                        Container(
+                          height: size.width/4-12,
+                          width: size.width/4-12,
+                          decoration: BoxDecoration(
+                              color: white,
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                size: 30,
+                                color: Colors.black87,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4),
+                                child: Utils.customText(text: "写真を撮る", size: 11.0),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        height: size.width/4-defaultPadding*1.5,
-                        width: size.width/4-defaultPadding*1.5,
-                        decoration: BoxDecoration(
-                            color: white,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.broken_image_outlined,
-                              size: 30,
-                              color: Colors.black87,
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Utils.customText(text: "アルバム", size: 11.0)
-                          ],
+                        Container(
+                          height: size.width/4-12,
+                          width: size.width/4-12,
+                          decoration: BoxDecoration(
+                              color: white,
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.broken_image_outlined,
+                                size: 30,
+                                color: Colors.black87,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Utils.customText(text: "アルバム", size: 11.0),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        height: size.width/4-defaultPadding*1.5,
-                        width: size.width/4-defaultPadding*1.5,
-                        decoration: BoxDecoration(
-                            color: white,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.qr_code_2,
-                              size: 30,
-                              color: Colors.black87,
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Utils.customText(
-                              text: "バーコード",
-                              size: 11.0,
-                            )
-                          ],
+                        Container(
+                          height: size.width/4-12,
+                          width: size.width/4-12,
+                          decoration: BoxDecoration(
+                              color: white,
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.qr_code_2,
+                                size: 30,
+                                color: Colors.black87,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4),
+                                child: Utils.customText(
+                                  text: "バーコード",
+                                  size: 11.0,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        height: size.width/4-defaultPadding*1.5,
-                        width: size.width/4-defaultPadding*1.5,
-                        decoration: BoxDecoration(
-                            color: white,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.note_alt_outlined,
-                              size: 30,
-                              color: Colors.black87,
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Utils.customText(text: "下書き一覧", size: 11.0)
-                          ],
-                        ),
-                      )
-                    ],
+                        Container(
+                          height: size.width/4-12,
+                          width: size.width/4-12,
+                          decoration: BoxDecoration(
+                              color: white,
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.note_alt_outlined,
+                                size: 30,
+                                color: Colors.black87,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4),
+                                child: Utils.customText(text: "下書き一覧", size: 11.0),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -139,7 +139,7 @@ class SellPage extends StatelessWidget {
           ),
           SliverToBoxAdapter(
               child: Container(
-            padding: EdgeInsets.only(left: defaultPadding * 2),
+            padding: EdgeInsets.only(left: defaultPadding),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -149,12 +149,12 @@ class SellPage extends StatelessWidget {
                     Utils.customText(
                         text: "売れやすい持ち物",
                         fontWeight: FontWeight.bold,
-                        size: 13.0,
-                        color: Colors.black),
+                        size: normalTextSize,
+                        color: black),
                     Utils.customText(
                         text: "使わないモノを出品しましょう！",
                         fontWeight: FontWeight.normal,
-                        size: 11.0,
+                        size: smallSubtileSize,
                         color: Colors.black54),
                   ],
                 ),
@@ -163,7 +163,7 @@ class SellPage extends StatelessWidget {
                   child: Utils.customText(
                       text: "すべて見る ＞",
                       fontWeight: FontWeight.normal,
-                      size: 13.0,
+                      size: normalTextSize,
                       color: Colors.blue),
                 )
               ],
@@ -188,12 +188,12 @@ class SellPage extends StatelessWidget {
                     children: [
                       Utils.customText(
                           text: "PS4 ドラゴンクエストX いばらの巫女と滅びの神",
-                          size: 13.0,
+                          size: normalTextSize,
                           fontWeight: FontWeight.bold,
                           line: 1),
                       Utils.customText(
                           text: "¥18,000",
-                          size: 13.0,
+                          size: normalTextSize,
                           fontWeight: FontWeight.bold),
                     ]),
                 subtitle: Utils.customText(text: "２６人が探しています", size: 10.0),
@@ -217,63 +217,51 @@ class SellPage extends StatelessWidget {
           }, childCount: 3)),
           SliverToBoxAdapter(
             child: Container(
+              padding: EdgeInsets.symmetric(vertical: defaultPadding),
+              color: black12,
               child: Column(
                 children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 15.0,
-                    child: const DecoratedBox(
-                      decoration: const BoxDecoration(color: black12),
+                  Container(
+                    color: white,
+                    child: ListTile(
+                      leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: Image.asset(
+                            "assets/images/sell1.png",
+                            width: 60,
+                          )),
+                      title: Utils.customText(
+                          text: "売れるかチェックする",
+                          size: 13.0,
+                          fontWeight: FontWeight.bold,
+                          line: 1),
+                      subtitle: Utils.customText(
+                          text: "カメラを使って商品単価の相場をチェック",
+                          size: 10.0,
+                          color: Colors.black54),
+                      trailing: Icon(Icons.navigate_next_sharp),
                     ),
                   ),
-                  ListTile(
-                    leading: ClipRRect(
-                        borderRadius: BorderRadius.circular(5),
-                        child: Image.asset(
-                          "assets/images/sell1.png",
-                          width: 60,
-                        )),
-                    title: Utils.customText(
-                        text: "売れるかチェックする",
-                        size: 13.0,
-                        fontWeight: FontWeight.bold,
-                        line: 1),
-                    subtitle: Utils.customText(
-                        text: "カメラを使って商品単価の相場をチェック",
-                        size: 10.0,
-                        color: Colors.black54),
-                    trailing: Icon(Icons.navigate_next_sharp),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 8.0,
-                    child: const DecoratedBox(
-                      decoration: const BoxDecoration(color: black12),
-                    ),
-                  ),
-                  ListTile(
-                    leading: ClipRRect(
-                        borderRadius: BorderRadius.circular(5),
-                        child: Image.asset(
-                          "assets/images/sell2.png",
-                          width: 60,
-                        )),
-                    title: Utils.customText(
-                        text: "メルカリストアを見る",
-                        size: 13.0,
-                        fontWeight: FontWeight.bold,
-                        line: 1),
-                    subtitle: Utils.customText(
-                        text: "メルカリ公式の便利な梱包資材を購入できます",
-                        size: 10.0,
-                        color: Colors.black54),
-                    trailing: Icon(Icons.navigate_next_sharp),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 15.0,
-                    child: const DecoratedBox(
-                      decoration: const BoxDecoration(color: black12),
+                  Container(
+                    margin: EdgeInsets.only(top: padding8),
+                    color: white,
+                    child: ListTile(
+                      leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: Image.asset(
+                            "assets/images/sell2.png",
+                            width: 60,
+                          )),
+                      title: Utils.customText(
+                          text: "メルカリストアを見る",
+                          size: 13.0,
+                          fontWeight: FontWeight.bold,
+                          line: 1),
+                      subtitle: Utils.customText(
+                          text: "メルカリ公式の便利な梱包資材を購入できます",
+                          size: 10.0,
+                          color: Colors.black54),
+                      trailing: Icon(Icons.navigate_next_sharp),
                     ),
                   ),
                 ],
@@ -282,15 +270,15 @@ class SellPage extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.all(defaultPadding),
+              padding: EdgeInsets.all(padding8),
               child: Column(
                 children: [
                   Image.asset(
                     "assets/images/goodsSend/sendBG.png",
                     width: size.width,
                   ),
-                  Utils.customText(text: "商品の梱包、実は意外とかんたんです", size: 13.0),
-                  Utils.customText(text: "さっそく包み方を見てみましょう！", size: 13.0),
+                  Utils.customText(text: "商品の梱包、実は意外とかんたんです", size: normalTextSize),
+                  Utils.customText(text: "さっそく包み方を見てみましょう！", size: normalTextSize),
                 ],
               ),
             ),
@@ -388,7 +376,7 @@ class sendMethod extends StatelessWidget {
               ),
               Wrap(
                 direction: Axis.horizontal,
-                spacing: 20,
+                spacing: 10,
                 children: [
                   ClipRRect(
                       borderRadius: BorderRadius.circular(5),
@@ -407,118 +395,118 @@ class sendMethod extends StatelessWidget {
                           width: size.width / 3.5)),
                 ],
               ),
-              SizedBox(
-                height: defaultPadding,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Stack(
-                    children: [
-                      Icon(
-                        Icons.brightness_1,
-                        color: Colors.green,
-                        size: 25,
-                      ),
-                      Positioned.fill(
-                          child: Align(
-                              alignment: Alignment.center,
-                              child: Utils.customText(
-                                  text: "1",
-                                  fontWeight: FontWeight.bold,
-                                  size: 12.0,
-                                  color: white))),
-                    ],
-                  ),
-                  Expanded(
-                      child: Utils.customText(
-                          text: sendmethod[index]["subtile1"]))
-                ],
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Stack(
-                    children: [
-                      Icon(
-                        Icons.brightness_1,
-                        color: Colors.green,
-                        size: 25,
-                      ),
-                      Positioned.fill(
-                          child: Align(
-                              alignment: Alignment.center,
-                              child: Utils.customText(
-                                  text: "2",
-                                  fontWeight: FontWeight.bold,
-                                  size: 12.0,
-                                  color: white))),
-                    ],
-                  ),
-                  Expanded(
-                      child: Utils.customText(
-                          text: sendmethod[index]["subtile2"]))
-                ],
-              ),
-              SizedBox(
-                height: defaultPadding,
-              ),
-              Container(
-                width: size.width,
-                padding: EdgeInsets.only(bottom: defaultPadding),
-                decoration: BoxDecoration(
-                    color: black12,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
+              Padding(
+                padding: const EdgeInsets.only(top: padding8),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
+                      children: [
+                        const Icon(
+                          Icons.brightness_1,
+                          color: Colors.green,
+                          size: 25,
+                        ),
+                        Positioned.fill(
+                            child: Align(
+                                alignment: Alignment.center,
+                                child: Utils.customText(
+                                    text: "1",
+                                    fontWeight: FontWeight.bold,
+                                    size: normalTextSize,
+                                    color: white))),
+                      ],
+                    ),
+                    Expanded(
                         child: Utils.customText(
-                            text: "おすすめ配送方法",
-                            color: white,
-                            fontWeight: FontWeight.bold),
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(10))),
-                        padding: EdgeInsets.all(6),
-                      ),
-                      SizedBox(height: defaultPadding,),
-                      Container(
-                        margin: const EdgeInsets.only(left: defaultPadding*2),
-                        child: RichText(
-                          text:  TextSpan(children: [
-                            TextSpan(
-                                text: "らくらくメルカリ便 ",
-                                style: TextStyle(color: Colors.black,fontSize: 16)),
-                            TextSpan(
-                                text: sendmethod[index]["method1"],
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,fontSize: 16))
-                          ]),
+                            text: sendmethod[index]["subtile1"]))
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 4.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
+                      children: [
+                        Icon(
+                          Icons.brightness_1,
+                          color: Colors.green,
+                          size: 25,
                         ),
-                      ),
-                      const SizedBox(height: defaultPadding,),
-                      Container(
-                        margin: EdgeInsets.only(left: defaultPadding*2),
-                        child: RichText(
-                          text: TextSpan(children: [
-                            TextSpan(
-                                text: "ゆうゆうメルカリ便 ",
-                                style: TextStyle(color: Colors.black,fontSize: 16)),
-                            TextSpan(
-                                text: sendmethod[index]["method2"],
-                                style: TextStyle(
+                        Positioned.fill(
+                            child: Align(
+                                alignment: Alignment.center,
+                                child: Utils.customText(
+                                    text: "2",
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,fontSize: 16))
-                          ]),
+                                    size: normalTextSize,
+                                    color: white))),
+                      ],
+                    ),
+                    Expanded(
+                        child: Utils.customText(
+                            text: sendmethod[index]["subtile2"]))
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: padding8),
+                child: Container(
+                  width: size.width,
+                  padding: EdgeInsets.only(bottom: defaultPadding),
+                  decoration: BoxDecoration(
+                      color: black12,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Utils.customText(
+                              text: "おすすめ配送方法",
+                              color: white,
+                              fontWeight: FontWeight.bold),
+                          decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(10))),
+                          padding: EdgeInsets.all(padding8),
                         ),
-                      )
-                    ]),
+
+
+                          Container(
+                            margin: const EdgeInsets.only(left: defaultPadding*2,top: padding8),
+                            child: RichText(
+                              text:  TextSpan(children: [
+                                TextSpan(
+                                    text: "らくらくメルカリ便 ",
+                                    style: TextStyle(color: Colors.black,fontSize: bigTittleSize)),
+                                TextSpan(
+                                    text: sendmethod[index]["method1"],
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,fontSize: bigTittleSize))
+                              ]),
+                            ),
+                          ),
+                        Container(
+                          margin: EdgeInsets.only(left: defaultPadding*2,top: padding8),
+                          child: RichText(
+                            text: TextSpan(children: [
+                              TextSpan(
+                                  text: "ゆうゆうメルカリ便 ",
+                                  style: TextStyle(color: Colors.black,fontSize: 16)),
+                              TextSpan(
+                                  text: sendmethod[index]["method2"],
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,fontSize: 16))
+                            ]),
+                          ),
+                        )
+                      ]),
+                ),
               )
             ],
           ),

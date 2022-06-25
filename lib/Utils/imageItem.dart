@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:merukari_app/Mini_Screens/itemDetails.dart';
+import 'package:merukari_app/Screens/itemDetails.dart';
 
 import '../constants.dart';
 import 'Utils.dart';

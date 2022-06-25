@@ -12,7 +12,7 @@ class greySpace extends StatelessWidget{
       sliver: SliverToBoxAdapter(
         child: SizedBox(
           width: size.width,
-          height: 10,
+          height: 20,
           child: const DecoratedBox(decoration: BoxDecoration(
               color: black12
           ),),

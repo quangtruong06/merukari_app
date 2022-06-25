@@ -8,6 +8,7 @@ import '../Utils/gridList.dart';
 
 class Susume extends StatelessWidget {
   const Susume({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scrollbar(
@@ -32,14 +33,13 @@ class Susume extends StatelessWidget {
                 Utils.customText(
                     text: "いいね！した商品",
                     fontWeight: FontWeight.bold,
-                    size: 16.0,
+                    size: bigTittleSize,
                     color: Colors.black),
                 TextButton(
                   onPressed: () {},
                   child: Utils.customText(
                       text: "すべて見る ＞",
-                      fontWeight: FontWeight.normal,
-                      size: 13.0,
+                      size: normalTextSize,
                       color: Colors.blue),
                 )
               ],
@@ -51,41 +51,35 @@ class Susume extends StatelessWidget {
           greySpace(
             paddingTop: 10,
           ),
-          SliverPadding(
-            padding: const EdgeInsets.only(bottom: defaultPadding),
-            sliver: SliverToBoxAdapter(
-              child: Container(
-                padding: const EdgeInsets.only(
-                    top: defaultPadding * 1.5,
-                    right: defaultPadding,
-                    left: defaultPadding),
-                decoration: const BoxDecoration(
-                    border: Border(
-                        top: BorderSide(width: 1, color: Colors.black12))),
-                child: Utils.customText(
-                    text: "閲覧した商品からのおすすめ",
-                    fontWeight: FontWeight.bold,
-                    size: 16.0,
-                    color: Colors.black),
-              ),
+          SliverToBoxAdapter(
+            child: Container(
+              padding:
+                  const EdgeInsets.only(left: defaultPadding, top: padding8),
+              decoration: const BoxDecoration(
+                  border:
+                      Border(top: BorderSide(width: 1, color: Colors.black12))),
+              child: Utils.customText(
+                  text: "閲覧した商品からのおすすめ",
+                  fontWeight: FontWeight.bold,
+                  size: bigTittleSize,
+                  color: Colors.black),
             ),
           ),
           const tittleBox(tittleList: "プレイテーション４", tittleDetail: "家庭用ゲームソフト"),
-          const gridList(itemGridCount: 6,),
-          tittleBox(tittleList: "ドラゴンクエスト", tittleDetail: "家庭用ゲームソフト"),
-          gridList(itemGridCount: 6),
-          tittleBox(tittleList: "ペルソナ５", tittleDetail: "家庭用ゲームソフト"),
-          gridList(itemGridCount: 6),
-          greySpace(paddingTop: 10.0),
-          SliverPadding(
-            padding: const EdgeInsets.only(bottom: defaultPadding),
-            sliver: SliverToBoxAdapter(
+          const gridList(
+            itemGridCount: 6,
+          ),
+          const tittleBox(tittleList: "ドラゴンクエスト", tittleDetail: "家庭用ゲームソフト"),
+          const gridList(itemGridCount: 6),
+          const tittleBox(tittleList: "ペルソナ５", tittleDetail: "家庭用ゲームソフト"),
+          const gridList(itemGridCount: 6),
+          greySpace(paddingTop: defaultPadding),
+           SliverToBoxAdapter(
               child: Container(
-                padding: EdgeInsets.only(
-                    top: defaultPadding * 1.5,
-                    right: defaultPadding,
+                padding: const EdgeInsets.only(
+                    top: defaultPadding,
                     left: defaultPadding),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     border: Border(
                         top: BorderSide(width: 1, color: Colors.black12))),
                 child: Utils.customText(
@@ -95,14 +89,12 @@ class Susume extends StatelessWidget {
                     color: Colors.black),
               ),
             ),
-          ),
-          gridList(itemGridCount: 200),
+          const SliverPadding(padding: EdgeInsets.only(top: defaultPadding),sliver: gridList(itemGridCount: 200)),
         ],
       ),
     );
   }
 }
-
 
 class tittleBox extends StatelessWidget {
   const tittleBox(
@@ -110,15 +102,16 @@ class tittleBox extends StatelessWidget {
       : super(key: key);
   final String? tittleList;
   final String? tittleDetail;
+
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
         child: Container(
-      margin: const EdgeInsets.only(top: defaultPadding),
+      margin: const EdgeInsets.only(top: padding8),
       padding:
-          const EdgeInsets.only(left: defaultPadding, right: defaultPadding),
+          const EdgeInsets.symmetric(horizontal: defaultPadding),
       decoration: const BoxDecoration(
-          border: Border(top: BorderSide(width: 1, color: Colors.black12))),
+          border: Border(top: BorderSide(width: 1, color: black12))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -128,12 +121,12 @@ class tittleBox extends StatelessWidget {
               Utils.customText(
                   text: tittleList,
                   fontWeight: FontWeight.bold,
-                  size: 16.0,
-                  color: Colors.black),
+                  size: bigTittleSize,
+                  color: black),
               Utils.customText(
                   text: tittleDetail,
                   fontWeight: FontWeight.normal,
-                  size: 10.0,
+                  size: smallSubtileSize,
                   color: Colors.black54),
             ],
           ),
@@ -142,7 +135,7 @@ class tittleBox extends StatelessWidget {
             child: Utils.customText(
                 text: "すべて見る ＞",
                 fontWeight: FontWeight.normal,
-                size: 13.0,
+                size: normalTextSize,
                 color: Colors.blue),
           )
         ],

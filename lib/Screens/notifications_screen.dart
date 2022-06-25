@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:merukari_app/Utils/utils.dart';
@@ -9,8 +8,10 @@ import '../constants.dart';
 
 // これはお知らせのページ
 class NotificationsPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SafeArea(
       child: DefaultTabController(
         initialIndex: 0,
@@ -21,22 +22,22 @@ class NotificationsPage extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    TabBar(
+                    const TabBar(
                         tabs: [
                           Tab(
                             text: 'お知らせ',
                           ),
                           Tab(text: 'ニュース')
                         ],
-                        labelColor: Colors.red,
+                        labelColor: setAppColor,
                         labelStyle: TextStyle(fontWeight: FontWeight.bold),
                         unselectedLabelColor: Colors.black38,
                         indicatorWeight: 3.0,
-                        indicatorColor: Colors.red), // Create Tabbar
+                        indicatorColor: setAppColor), // Create Tabbar
                     Expanded(
                       child: TabBarView(children: <Widget>[
-                        NotificationsList(),
-                        NewsList()
+                        NotificationsList(size: size,),
+                        NewsList(size: size,)
                       ]), //Set Tabbar View
                     ),
                   ],
@@ -45,13 +46,13 @@ class NotificationsPage extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(defaultPadding),
                       child: RawMaterialButton(
                         onPressed: () {},
                         child: Container(
                           height: 50,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: white,
                             border: Border.all(
                               color: Colors.blue,
                               width: 1,
@@ -59,16 +60,16 @@ class NotificationsPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 16, right: 8),
+                            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Utils.customText(
                                     text: "2件のおすすめキャンペーンを見る",
                                     color: Colors.blue,
-                                    size: 13.0,
+                                    size: normalTextSize,
                                     fontWeight: FontWeight.bold),
-                                Icon(
+                                const Icon(
                                   Icons.arrow_forward_ios_outlined,
                                   size: 15,
                                   color: Colors.blue,
@@ -88,22 +89,24 @@ class NotificationsPage extends StatelessWidget {
   }
 }
 class NewsList extends StatelessWidget {
+  const NewsList({Key? key,required this.size}) : super(key: key);
+  final Size size;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 20.0, bottom: 8.0, right: 0.0),
+      padding: EdgeInsets.only(left: defaultPadding),
       child: ListView.builder(
           itemCount: 20,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   border: Border(
                       bottom: BorderSide(width: 1, color: black12))),
-              height: 90,
+              height: size.height/9,
               child: Column(
                 children: [
                   Container(
-                    margin: const EdgeInsets.all(8.0),
+                    margin: const EdgeInsets.all(padding8),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,18 +126,20 @@ class NewsList extends StatelessWidget {
   }
 }
 class NotificationsList extends StatelessWidget {
+  const NotificationsList({Key? key,required this.size}) : super(key: key);
+  final Size size ;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 20.0, bottom: 8.0, right: 0.0),
+      padding: EdgeInsets.only(left: defaultPadding),
       child: ListView.builder(
           itemCount: 20,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   border: Border(
                       bottom: BorderSide(width: 1, color: black12))),
-              height: 90,
+              height: size.height/9,
               child: Row(
                 children: [
                   Image.asset(
@@ -143,7 +148,7 @@ class NotificationsList extends StatelessWidget {
                       fit: BoxFit.cover),
                   Flexible(
                     child: Container(
-                      margin: const EdgeInsets.all(8.0),
+                      margin: const EdgeInsets.all(padding8),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.start,

@@ -9,23 +9,24 @@ class Shoppu extends StatelessWidget {
   List sliverListItem = ["いいね！閲覧履歴", "注文履歴", "フォロー中のショップ"];
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Scrollbar(
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
             child: Container(
-                padding: const EdgeInsets.all(defaultPadding),
-                color: Colors.black12,
+                padding: const EdgeInsets.all(padding8),
+                color: black12,
                 child: Image.asset(
                   "assets/images/susume1.png",
-                  width: double.maxFinite,
+                  width: size.width,
                   fit: BoxFit.cover,
                 )),
           ),
           sliverList(
             itemTittle: sliverListItem,
           ),
-          greySpace(paddingTop: 10),
+          greySpace(paddingTop: 0),
           tittleBox(tittleList: "注目の商品"),
           const gridList(itemGridCount: 6),
           greySpace(paddingTop: 10),
@@ -33,9 +34,10 @@ class Shoppu extends StatelessWidget {
           const gridList(itemGridCount: 6),
           SliverToBoxAdapter(
             child: Container(
-              margin: const EdgeInsets.only(top: defaultPadding),
-              color: Colors.black12,
-              padding: const EdgeInsets.all(defaultPadding),
+              margin: EdgeInsets.only(top: padding8),
+              width: size.width,
+              color: black12,
+              padding: const EdgeInsets.all(padding8),
               child: Image.asset(
                 "assets/images/shopimg.jpg",
                 fit: BoxFit.cover,
@@ -48,18 +50,18 @@ class Shoppu extends StatelessWidget {
                 child: Utils.customText(
                     text: "カテゴリー",
                     fontWeight: FontWeight.bold,
-                    size: 16.0,
+                    size: bigTittleSize,
                     color: Colors.black)),
           ),
           categoriBox(),
-          greySpace(paddingTop: defaultPadding),
+          greySpace(paddingTop: padding8),
           SliverPadding(
             padding: EdgeInsets.all(10),
             sliver: SliverToBoxAdapter(
                 child: Utils.customText(
                     text: "おすすめの商品",
                     fontWeight: FontWeight.bold,
-                    size: 16.0,
+                    size: bigTittleSize,
                     color: Colors.black)),
           ),
           const gridList(itemGridCount: 200)
@@ -77,21 +79,31 @@ class categoriBox extends StatelessWidget {
     "assets/logo/categori5.png",
     "assets/logo/categori6.png",
   ];
-  List name = [
-    "ハンドメイド",
-    "アパレル",
-    "コスメ",
-    "食べ物・飲み物",
-    "インテリア\n住まい・小物",
-    "その他",
-  ];
-  List color = [
-    Colors.orange,
-    Colors.blueAccent,
-    Colors.pink,
-    Colors.redAccent,
-    Colors.lightGreenAccent,
-    Colors.green
+  List catagoriItem = [
+    {
+      "name":"ハンドメイド",
+      "color":Colors.orange
+    },
+    {
+      "name":"ハンドメイド",
+      "color":Colors.blueAccent
+    },
+    {
+      "name":"コスメ",
+      "color":Colors.pink,
+    },
+    {
+      "name":"食べ物・飲み物",
+      "color":Colors.redAccent,
+    },
+    {
+      "name":"インテリア\n住まい・小物",
+      "color":Colors.lightGreenAccent
+    },
+    {
+      "name":"その他",
+      "color": Colors.green
+    },
   ];
   categoriBox({
     Key? key,
@@ -107,7 +119,7 @@ class categoriBox extends StatelessWidget {
                 MaterialButton(
                   onPressed: () {},
                   shape: CircleBorder(),
-                  color: color[index],
+                  color: catagoriItem[index]["color"],
                   height: 50,
                   child: Image.asset(
                     logo[index],
@@ -115,7 +127,7 @@ class categoriBox extends StatelessWidget {
                     width: 40,
                   ),
                 ),
-                Utils.customText(text: name[index], size: 13.0)
+                Utils.customText(text: catagoriItem[index]["name"], size: 13.0)
               ],
             ),
           );
@@ -140,15 +152,15 @@ class sliverList extends StatelessWidget {
         return Container(
           decoration: const BoxDecoration(
               border:
-                  Border(bottom: BorderSide(width: 1, color: Colors.black12))),
+                  Border(bottom: BorderSide(width: 1, color: black12))),
           child: ListTile(
-            title: Utils.customText(text: itemTittle?[index], size: 12.0),
+            title: Utils.customText(text: itemTittle?[index], size: normalTextSize),
             trailing: Icon(Icons.navigate_next_sharp),
           ),
         );
       } else {
         return ListTile(
-          title: Utils.customText(text: itemTittle?[index], size: 12.0),
+          title: Utils.customText(text: itemTittle?[index], size: normalTextSize),
           trailing: const Icon(Icons.navigate_next_sharp),
         );
       }
@@ -172,14 +184,14 @@ class tittleBox extends StatelessWidget {
           Utils.customText(
               text: tittleList,
               fontWeight: FontWeight.bold,
-              size: 16.0,
-              color: Colors.black),
+              size: bigTittleSize,
+              color: black),
           TextButton(
             onPressed: () {},
             child: Utils.customText(
                 text: "すべて見る ＞",
                 fontWeight: FontWeight.normal,
-                size: 13.0,
+                size: normalTextSize,
                 color: Colors.blue),
           )
         ],
