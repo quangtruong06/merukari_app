@@ -43,7 +43,7 @@ class _HomePage extends State<HomePage> {
                   showSearch(context: context, delegate: DataSearch());
                 },
                 decoration: InputDecoration(
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.search,
                       color: Colors.black54,
                       size: 16,

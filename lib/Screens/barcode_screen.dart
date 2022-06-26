@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:merukari_app/Utils/Utils.dart';
 import 'package:merukari_app/Utils/greySpace.dart';
 import 'package:merukari_app/Utils/text_next.dart';
+import 'package:merukari_app/app_data.dart';
 import 'package:merukari_app/constants.dart';
 
 class BarcodePage extends StatelessWidget {
@@ -70,7 +71,7 @@ class BarcodePage extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 80,
+                        height: size.height/10,
                         width: size.width / 3.5,
                         decoration: BoxDecoration(
                             color: white,
@@ -432,14 +433,14 @@ class barcodeContent extends StatelessWidget {
                 ),
                 Utils.customText(
                     text: "街の店で決済", size: normalTextSize, fontWeight: FontWeight.bold),
-                SizedBox(
-                  height: defaultPadding,
-                ),
-                Image.asset(
-                  "assets/images/barcode.png",
-                  height: 40,
-                  width: size.width/1.8,
-                  fit: BoxFit.fill,
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Image.asset(
+                    "assets/images/barcode.png",
+                    height: 40,
+                    width: size.width/1.8,
+                    fit: BoxFit.fill,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: defaultPadding),
@@ -473,11 +474,11 @@ class barcodeContent extends StatelessWidget {
                             ),
                           ),
                           Utils.customText(
-                              text: "¥1000",
+                              text: "¥${yourMoney}",
                               fontWeight: FontWeight.bold,
                               size: 13.0),
                           Utils.customText(
-                              text: "P100",
+                              text: "P${yourPoint}",
                               fontWeight: FontWeight.bold,
                               size: 13.0)
                         ],
@@ -527,49 +528,49 @@ class barcodeContent extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: defaultPadding,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton.icon(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.add_circle,
-                    color: white,
-                  ),
-                  label: Utils.customText(
-                      text: "残高にチャージ",
+          Padding(
+            padding: const EdgeInsets.only(top: defaultPadding),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton.icon(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.add_circle,
                       color: white,
-                      size: 10.0,
-                      fontWeight: FontWeight.bold)),
-              SizedBox(
-                  height: 25,
-                  child: VerticalDivider(
-                    color: Colors.black38,
-                    thickness: 1.5,
-                  )),
-              TextButton.icon(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.sync_outlined,
-                    color: Colors.lightBlue,
-                  ),
-                  label: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Utils.customText(
-                            text: "メルペイスマート払い",
-                            color: white,
-                            size: 10.0,
-                            fontWeight: FontWeight.bold),
-                        Utils.customText(
-                            text: "使える枠 ￥10,000",
-                            color: white,
-                            size: 10.0)
-                      ])),
-            ],
+                    ),
+                    label: Utils.customText(
+                        text: "残高にチャージ",
+                        color: white,
+                        size: 10.0,
+                        fontWeight: FontWeight.bold)),
+                SizedBox(
+                    height: 25,
+                    child: VerticalDivider(
+                      color: Colors.black38,
+                      thickness: 1.5,
+                    )),
+                TextButton.icon(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.sync_outlined,
+                      color: Colors.lightBlue,
+                    ),
+                    label: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Utils.customText(
+                              text: "メルペイスマート払い",
+                              color: white,
+                              size: 10.0,
+                              fontWeight: FontWeight.bold),
+                          Utils.customText(
+                              text: "使える枠 ￥10,000",
+                              color: white,
+                              size: 10.0)
+                        ])),
+              ],
+            ),
           )
         ],
       ),

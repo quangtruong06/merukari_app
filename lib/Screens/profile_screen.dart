@@ -5,6 +5,7 @@ import 'package:merukari_app/Utils/greySpace.dart';
 import 'package:merukari_app/Utils/text_next.dart';
 import 'package:merukari_app/Utils/utils.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:merukari_app/app_data.dart';
 import 'package:merukari_app/constants.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -71,25 +72,26 @@ class ProfilePage extends StatelessWidget {
                                   color: Colors.orange,
                                 )),
                             onRatingUpdate: (value) {}),
-                        SizedBox(
-                          width: 5,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4.0),
+                          child: Text(
+                            "20",
+                            style: TextStyle(
+                                fontSize: normalTextSize,
+                                decoration: TextDecoration.underline,
+                                color: Colors.blueAccent),
+                          ),
                         ),
-                        Text(
-                          "20",
-                          style: TextStyle(
-                              fontSize: 12,
-                              decoration: TextDecoration.underline,
-                              color: Colors.blueAccent),
+
+                        Padding(
+                          padding: const EdgeInsets.only(left: defaultPadding),
+                          child: Icon(
+                            Icons.check_circle_rounded,
+                            size: 15,
+                            color: Colors.green,
+                          ),
                         ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Icon(
-                          Icons.check_circle_rounded,
-                          size: 15,
-                          color: Colors.green,
-                        ),
-                        Utils.customText(text: "本人確認済", size: 12.0)
+                        Utils.customText(text: "本人確認済", size: normalTextSize)
                       ],
                     ),
                   ),
@@ -121,38 +123,40 @@ class ProfilePage extends StatelessWidget {
                                 text: "残高",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 13,
+                                    fontSize: normalTextSize,
                                     color: black)),
                             TextSpan(
                                 text: "(売上含む)",
-                                style: TextStyle(fontSize: 13, color: black))
+                                style: TextStyle(fontSize: normalTextSize, color: black))
                           ])),
                           Utils.customText(
                               text: "¥54",
                               fontWeight: FontWeight.bold,
-                              size: 20.0),
-                          SizedBox(height: defaultPadding),
-                          Utils.customText(text: "ポイント", size: 13.0),
-                          SizedBox(
-                            height: 4,
+                              size: bigTittleSize),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Utils.customText(text: "ポイント", size: normalTextSize),
                           ),
-                          Row(children: [
-                            Image.asset(
-                              "assets/logo/mercari_icon.png",
-                              height: 20,
-                              fit: BoxFit.fitHeight,
-                            ),
-                            Utils.customText(text: "P0", size: 13.0),
-                            SizedBox(
-                              width: defaultPadding,
-                            ),
-                            Image.asset(
-                              "assets/logo/d_point.png",
-                              height: 18,
-                              fit: BoxFit.fitHeight,
-                            ),
-                            Utils.customText(text: "P1000", size: 13.0)
-                          ])
+                          Padding(
+                            padding: const EdgeInsets.only(top: 4.0),
+                            child: Row(children: [
+                              Image.asset(
+                                "assets/logo/mercari_icon.png",
+                                height: 20,
+                                fit: BoxFit.fitHeight,
+                              ),
+                              Utils.customText(text: "P${yourPoint}", size: 13.0),
+                              Padding(
+                                padding: EdgeInsets.only(left: 4.0),
+                                child: Image.asset(
+                                  "assets/logo/d_point.png",
+                                  height: 18,
+                                  fit: BoxFit.fitHeight,
+                                ),
+                              ),
+                              Utils.customText(text: "P1000", size: 13.0)
+                            ]),
+                          )
                         ],
                       ),
                       ElevatedButton.icon(
@@ -168,7 +172,7 @@ class ProfilePage extends StatelessWidget {
                             color: white,
                             fontWeight: FontWeight.bold),
                         style: ElevatedButton.styleFrom(
-                            minimumSize: Size(size.width / 3.3, 30),
+                            minimumSize: Size(size.width / 3.1, size.height/25),
                             primary: Color(0xFFd91e18)),
                       )
                     ],
@@ -203,7 +207,7 @@ class ProfilePage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Utils.customText(
-                                    text: "¥128,372",
+                                    text: "¥${yourPrepay}",
                                     fontWeight: FontWeight.bold,
                                     size: 20.0),
                                 Row(
@@ -213,7 +217,7 @@ class ProfilePage extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                         size: 12.0),
                                     Utils.customText(
-                                        text: "¥150,000",
+                                        text: "¥${yourPrepayLimit}}",
                                         size: 12.0,
                                         color: Colors.blue),
                                   ],
@@ -226,7 +230,7 @@ class ProfilePage extends StatelessWidget {
                                 minHeight: 8,
                                 color: Colors.blue,
                                 backgroundColor: Color(0xFFbbdefb),
-                                value: (128372 / 150000),
+                                value: (prepayProgressPercent),
                               ),
                             ),
                             Padding(
@@ -252,7 +256,8 @@ class ProfilePage extends StatelessWidget {
                                 size: 13.0,
                                 fontWeight: FontWeight.bold),
                             style: OutlinedButton.styleFrom(
-                              minimumSize: Size(size.width / 3.3, 30),
+                              side: BorderSide(color: black),
+                              minimumSize: Size(size.width / 3.3, size.height/25),
                             ),
                           ),
                         ],
