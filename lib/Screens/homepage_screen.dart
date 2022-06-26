@@ -49,7 +49,7 @@ class _HomePage extends State<HomePage> {
                       size: 16,
                     ),
                     filled: true,
-                    fillColor: Colors.grey,
+                    fillColor: Colors.white12,
                     contentPadding: EdgeInsets.only(left: 8, right: 8),
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey, width: 1.0),
