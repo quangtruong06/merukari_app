@@ -9,7 +9,9 @@ class Utils {
     size = 16.0,
     fontWeight = FontWeight.normal,
     line = 3,
-    textAlign = TextAlign.left}) {
+    textAlign = TextAlign.left,
+    decoration = TextDecoration.none
+  }) {
     return Text(
       text,
       style: TextStyle(
@@ -17,7 +19,7 @@ class Utils {
           color: color,
           height: 1.4,
           fontWeight: fontWeight,
-          decoration: TextDecoration.none),
+          decoration: decoration),
       textAlign: textAlign,
       maxLines: line,
       overflow: TextOverflow.ellipsis,

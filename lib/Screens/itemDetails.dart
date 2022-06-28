@@ -2,9 +2,9 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:merukari_app/Utils/Utils.dart';
+import 'package:merukari_app/Utils/imageItem.dart';
 import 'package:merukari_app/constants.dart';
-
-import '../Utils/bl;oc/Bloc.dart';
+import '../Utils/bloc/Bloc.dart';
 
 class ItemDetails extends StatefulWidget {
   @override
@@ -15,21 +15,21 @@ class ItemDetails extends StatefulWidget {
 
 class _ItemDetails extends State<ItemDetails> {
   ScrollController _scrollController = new ScrollController();
-  bool isShoHeader = false;
+  bool isShowHeader = false;
 
   @override
   initState() {
     super.initState();
     _scrollController.addListener(() {
       var y = _scrollController.offset;
-      if (y > MediaQuery.of(context).size.height/2-8) {
-        if (!isShoHeader) {
-          isShoHeader = true;
+      if (y > MediaQuery.of(context).size.height / 2 - 8) {
+        if (!isShowHeader) {
+          isShowHeader = true;
           setShowHeader(true);
         }
       } else {
-        if (isShoHeader) {
-          isShoHeader = false;
+        if (isShowHeader) {
+          isShowHeader = false;
           setShowHeader(false);
         }
       }
@@ -49,12 +49,455 @@ class _ItemDetails extends State<ItemDetails> {
                 size: size,
               ),
             ),
+            SliverPadding(
+              padding: EdgeInsets.only(
+                  left: defaultPadding, top: padding8, right: defaultPadding),
+              sliver: SliverToBoxAdapter(
+                child: Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Utils.customText(
+                          text: "PS4 ドラゴンクエストX いばらの巫女と滅びの神",
+                          fontWeight: FontWeight.bold,
+                          size: normalTextSize),
+                      Utils.customText(
+                          text: "プレイステーション4",
+                          size: smallSubtileSize,
+                          color: Colors.black54),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: RichText(
+                            text: TextSpan(children: [
+                          const TextSpan(
+                              text: "¥2680",
+                              style: TextStyle(
+                                  color: Color(0xFFd91e18),
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 30.0)),
+                          WidgetSpan(
+                              child: Padding(
+                            padding: EdgeInsets.only(left: 4.0),
+                            child: Utils.customText(
+                                text: "送料込み",
+                                size: smallSubtileSize,
+                                color: Colors.black54),
+                          ))
+                        ])),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            width: size.width / 4.2,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                color: black12,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.favorite_outlined,
+                                  color: Color(0xFFd91e18),
+                                  size: 20,
+                                ),
+                                Utils.customText(
+                                    text: "いいね！",
+                                    size: normalTextSize,
+                                    color: Colors.black54)
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(left: 16),
+                            width: size.width / 4.2,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                color: black12,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.mode_comment_outlined,
+                                  color: Colors.black54,
+                                  size: 20,
+                                ),
+                                Utils.customText(
+                                    text: "コメント",
+                                    size: normalTextSize,
+                                    color: Colors.black54),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                              child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.more_horiz,
+                                        size: 20,
+                                        color: Colors.black54,
+                                      ))))
+                        ],
+                      ),
+                      Divider(
+                        height: defaultPadding,
+                        thickness: 1,
+                        color: Colors.black12,
+                      ),
+                      Utils.customText(
+                          text: "この商品を見ている人におすすめ",
+                          size: normalTextSize,
+                          color: Colors.black54),
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: defaultPadding),
+                        height: size.height / 9,
+                        child: ListView.builder(
+                          itemBuilder: (context, index) {
+                            return Container(
+                                width: size.height / 9,
+                                margin: EdgeInsets.only(right: 10),
+                                child: imageItem(
+                                  imgSize: size.height / 9,
+                                  itemValue: 2500,
+                                ));
+                          },
+                          itemCount: 20,
+                          scrollDirection: Axis.horizontal,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
             SliverToBoxAdapter(
               child: Container(
-                height: 2000,
-                color: Colors.black87,
+                color: black12,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(defaultPadding),
+                      child: Utils.customText(
+                          text: "商品の説明",
+                          color: Colors.black54,
+                          size: normalTextSize),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(defaultPadding),
+                      color: white,
+                      child: Utils.customText(
+                          text: "※値引き不可※\n"
+                              "プレイステーション4ソフト\n"
+                              "新品未開封となりますが、外袋の擦れ傷や経年劣化はご容赦ください。\n"
+                              "状態は写真でご確認くださいませ。\n"
+                              "オンライン専用タイトルです。\n"
+                              "ドラゴンクエスト10\n"
+                              "DQ10\n"
+                              "PlayStation4",
+                          line: 100,
+                          size: normalTextSize,
+                          color: black),
+                    )
+                  ],
+                ),
               ),
-            )
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                padding: const EdgeInsets.all(defaultPadding),
+                color: black12,
+                child: Utils.customText(
+                    text: "商品の情報", color: Colors.black54, size: normalTextSize),
+              ),
+            ),
+            SliverList(
+                delegate: SliverChildListDelegate([
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                  color: Color(0xF5F5F5),
+                  border: Border(top: BorderSide(width: 0.5,color: black12))
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Utils.customText(
+                          text: "カテゴリー",
+                          color: Colors.black54,
+                          size: normalTextSize,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: Container(
+                        color: white,
+                        padding: EdgeInsets.all(padding8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Utils.customText(
+                                text: "本・音楽・ゲーム",
+                                size: normalTextSize,
+                                color: Colors.blue,
+                                decoration: TextDecoration.underline),
+                            Utils.customText(
+                                text: "テレビゲーム",
+                                size: normalTextSize,
+                                color: Colors.blue,
+                                decoration: TextDecoration.underline),
+                            Utils.customText(
+                                text: "家庭用ゲームソフト",
+                                size: normalTextSize,
+                                color: Colors.blue,
+                                decoration: TextDecoration.underline),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+                  Container(
+                    padding: EdgeInsets.only(left: 20),
+                    decoration: BoxDecoration(
+                        color: Color(0xF5F5F5),
+                        border: Border(top: BorderSide(width: 0.5,color: black12))
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Utils.customText(
+                              text: "ブランド",
+                              color: Colors.black54,
+                              size: normalTextSize,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Container(
+                            color: white,
+                            padding: EdgeInsets.all(padding8),
+                            child: Utils.customText(
+                                text: "プレイステーション4",
+                                size: normalTextSize,
+                                color: Colors.blue,
+                                decoration: TextDecoration.underline),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 20),
+                    decoration: BoxDecoration(
+                        color: Color(0xF5F5F5),
+                        border: Border(top: BorderSide(width: 0.5,color: black12))
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Utils.customText(
+                              text: "商品の状態",
+                              size: normalTextSize,
+                              fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Container(
+                            color: white,
+                            padding: EdgeInsets.all(padding8),
+                            child: Utils.customText(
+                                text: "新品、未使用",
+                                size: normalTextSize,
+                                color: black,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 20),
+                    decoration: BoxDecoration(
+                        color: Color(0xF5F5F5),
+                        border: Border(top: BorderSide(width: 0.5,color: black12))
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Utils.customText(
+                              text: "商品の状態",
+                              size: normalTextSize,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Container(
+                            color: white,
+                            padding: EdgeInsets.all(padding8),
+                            child: Utils.customText(
+                              text: "送料込み(出品者負担)",
+                              size: normalTextSize,
+                              color: black,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 20),
+                    decoration: BoxDecoration(
+                        color: Color(0xF5F5F5),
+                        border: Border(top: BorderSide(width: 0.5,color: black12))
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Utils.customText(
+                              text: "配送の方法",
+                              size: normalTextSize,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Container(
+                            color: white,
+                            padding: EdgeInsets.all(padding8),
+                            child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start
+                            ,children: [
+                                Utils.customText(
+                                  text: "らくらくメルカリ便",
+                                  size: normalTextSize,
+                                  color: black,
+                                ),
+                              Container(
+                                margin: EdgeInsets.only(top: 4.0),
+                                color: Colors.black54,
+                                padding:EdgeInsets.all(4.0),
+                                child: Utils.customText(
+                                  text: "匿名配送",
+                                  color: white,
+                                  fontWeight: FontWeight.bold,
+                                  size: 9.0
+                                ),
+                              )
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 20),
+                    decoration: BoxDecoration(
+                        color: Color(0xF5F5F5),
+                        border: Border(top: BorderSide(width: 0.5,color: black12))
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Utils.customText(
+                              text: "発送元の地域",
+                              size: normalTextSize,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Container(
+                            color: white,
+                            padding: EdgeInsets.all(padding8),
+                            child: Utils.customText(
+                              text: "大阪府",
+                              size: normalTextSize,
+                              color: black,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 20),
+                    decoration: BoxDecoration(
+                        color: Color(0xF5F5F5),
+                        border: Border(top: BorderSide(width: 0.5,color: black12))
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Utils.customText(
+                              text: "発送までの日数",
+                              size: normalTextSize,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Container(
+                            color: white,
+                            padding: EdgeInsets.all(padding8),
+                            child: Utils.customText(
+                              text: "2~3日で発送",
+                              size: normalTextSize,
+                              color: black,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: defaultPadding,vertical: padding8),
+                    decoration: BoxDecoration(
+                        color: white,
+                        border: Border(top: BorderSide(width: 0.5,color: black12))
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.lock,color: Colors.yellow,size: 24,),
+                        Expanded(flex: 20,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Utils.customText(
+                                text: "メルカリ安心への取り組み",
+                                size: normalTextSize,
+                                fontWeight: FontWeight.bold,
+                                color: black
+                              ),
+                      Utils.customText(
+                            text: "お金は事務局に支払われ、評価後に振り込まれます",
+                            size: smallSubtileSize,
+                            color: Colors.black54
+                      )
+                            ],
+                          ),
+                        ),
+                        Expanded(flex: 1,child: Icon(Icons.navigate_next,color: Colors.red,size: 25,))
+                      ],
+                    ),
+                  )
+            ]))
           ],
         ),
         StreamBuilder(
@@ -64,26 +507,36 @@ class _ItemDetails extends State<ItemDetails> {
               if (snapshot.hasData) {
                 isShow = snapshot.data as bool;
               }
-              return SafeArea(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: isShow ? white : Colors.transparent,
-                      border: Border(
-                          bottom: BorderSide(width: 0.5, color: black12))),
-                  height: 44,
+              return Container(
+                padding: EdgeInsets.only(top: 70),
+                decoration: BoxDecoration(
+                    color: isShow ? white : Colors.transparent,
+                    border: Border(
+                        bottom: BorderSide(
+                            width: 0.5,
+                            color: isShow ? black12 : Colors.transparent))),
+                height: size.height / 6.8,
+                child: Align(
+                  alignment: Alignment.bottomCenter,
                   child: Stack(
                     alignment: Alignment.centerLeft,
                     children: [
                       Positioned(
                           left: 16,
-                          child: Icon(
-                            Icons.arrow_back_ios_new_rounded,
-                            size: 24,
-                            color: isShow ? Colors.black26 : Colors.white,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.arrow_back_ios_new_rounded,
+                              size: 24,
+                              color: isShow ? Colors.black26 : Colors.white,
+                            ),
                           )),
                       if (isShow)
                         Positioned.fill(
                             child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Utils.customText(
                                 text: "PS4 ドラゴンクエストX いばらの巫女と滅びの神",
@@ -102,7 +555,7 @@ class _ItemDetails extends State<ItemDetails> {
                   ),
                 ),
               );
-            })
+            }),
       ]),
     );
   }
@@ -131,6 +584,7 @@ class ImagePageView extends StatefulWidget {
 
 class _ImagePageView extends State<ImagePageView> {
   int currentPage = 0;
+
   PageController _pageController = PageController();
 
   @override
