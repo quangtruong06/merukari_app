@@ -34,21 +34,19 @@ class ProfilePage extends StatelessWidget {
                         width: 50,
                         fit: BoxFit.cover,
                       )),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Utils.customText(
-                        text: "チュオン ",
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        size: 16.0),
-                    Icon(Icons.navigate_next_rounded)
-                  ]),
-                  SizedBox(
-                    height: 5,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      Utils.customText(
+                          text: "チュオン ",
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          size: 16.0),
+                      Icon(Icons.navigate_next_rounded)
+                    ]),
                   ),
                   Container(
+                    margin: EdgeInsets.only(top: 4.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

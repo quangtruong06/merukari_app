@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:merukari_app/Utils/Utils.dart';
 import 'package:merukari_app/Utils/imageItem.dart';
 import 'package:merukari_app/constants.dart';
@@ -131,17 +132,15 @@ class _ItemDetails extends State<ItemDetails> {
                                     color: Colors.black54),
                               ],
                             ),
-                          ),
-                          Expanded(
-                              child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.more_horiz,
-                                        size: 20,
-                                        color: Colors.black54,
-                                      ))))
+                          ),Spacer(),
+
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.more_horiz,
+                                size: 20,
+                                color: Colors.black54,
+                              ))
                         ],
                       ),
                       Divider(
@@ -221,9 +220,9 @@ class _ItemDetails extends State<ItemDetails> {
               Container(
                 padding: EdgeInsets.only(left: 20),
                 decoration: BoxDecoration(
-                  color: Color(0xF5F5F5),
-                  border: Border(top: BorderSide(width: 0.5,color: black12))
-                ),
+                    color: Color(0xF5F5F5),
+                    border:
+                        Border(top: BorderSide(width: 0.5, color: black12))),
                 child: Row(
                   children: [
                     Expanded(
@@ -264,240 +263,356 @@ class _ItemDetails extends State<ItemDetails> {
                   ],
                 ),
               ),
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    decoration: BoxDecoration(
-                        color: Color(0xF5F5F5),
-                        border: Border(top: BorderSide(width: 0.5,color: black12))
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                    color: Color(0xF5F5F5),
+                    border:
+                        Border(top: BorderSide(width: 0.5, color: black12))),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Utils.customText(
+                          text: "ブランド",
+                          color: Colors.black54,
+                          size: normalTextSize,
+                          fontWeight: FontWeight.bold),
                     ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Utils.customText(
-                              text: "ブランド",
-                              color: Colors.black54,
-                              size: normalTextSize,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Container(
-                            color: white,
-                            padding: EdgeInsets.all(padding8),
-                            child: Utils.customText(
-                                text: "プレイステーション4",
-                                size: normalTextSize,
-                                color: Colors.blue,
-                                decoration: TextDecoration.underline),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    decoration: BoxDecoration(
-                        color: Color(0xF5F5F5),
-                        border: Border(top: BorderSide(width: 0.5,color: black12))
-                    ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Utils.customText(
-                              text: "商品の状態",
-                              size: normalTextSize,
-                              fontWeight: FontWeight.bold,
+                    Expanded(
+                      flex: 5,
+                      child: Container(
+                        color: white,
+                        padding: EdgeInsets.all(padding8),
+                        child: Utils.customText(
+                            text: "プレイステーション4",
+                            size: normalTextSize,
+                            color: Colors.blue,
+                            decoration: TextDecoration.underline),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                    color: Color(0xF5F5F5),
+                    border:
+                        Border(top: BorderSide(width: 0.5, color: black12))),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Utils.customText(
+                          text: "商品の状態",
+                          size: normalTextSize,
+                          fontWeight: FontWeight.bold,
                           color: Colors.black54),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Container(
-                            color: white,
-                            padding: EdgeInsets.all(padding8),
-                            child: Utils.customText(
-                                text: "新品、未使用",
-                                size: normalTextSize,
-                                color: black,
-                            ),
-                          ),
-                        )
-                      ],
                     ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    decoration: BoxDecoration(
-                        color: Color(0xF5F5F5),
-                        border: Border(top: BorderSide(width: 0.5,color: black12))
-                    ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Utils.customText(
-                              text: "商品の状態",
-                              size: normalTextSize,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black54),
+                    Expanded(
+                      flex: 5,
+                      child: Container(
+                        color: white,
+                        padding: EdgeInsets.all(padding8),
+                        child: Utils.customText(
+                          text: "新品、未使用",
+                          size: normalTextSize,
+                          color: black,
                         ),
-                        Expanded(
-                          flex: 5,
-                          child: Container(
-                            color: white,
-                            padding: EdgeInsets.all(padding8),
-                            child: Utils.customText(
-                              text: "送料込み(出品者負担)",
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                    color: Color(0xF5F5F5),
+                    border:
+                        Border(top: BorderSide(width: 0.5, color: black12))),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Utils.customText(
+                          text: "商品の状態",
+                          size: normalTextSize,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: Container(
+                        color: white,
+                        padding: EdgeInsets.all(padding8),
+                        child: Utils.customText(
+                          text: "送料込み(出品者負担)",
+                          size: normalTextSize,
+                          color: black,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                    color: Color(0xF5F5F5),
+                    border:
+                        Border(top: BorderSide(width: 0.5, color: black12))),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Utils.customText(
+                          text: "配送の方法",
+                          size: normalTextSize,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: Container(
+                        color: white,
+                        padding: EdgeInsets.all(padding8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Utils.customText(
+                              text: "らくらくメルカリ便",
                               size: normalTextSize,
                               color: black,
                             ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    decoration: BoxDecoration(
-                        color: Color(0xF5F5F5),
-                        border: Border(top: BorderSide(width: 0.5,color: black12))
-                    ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Utils.customText(
-                              text: "配送の方法",
-                              size: normalTextSize,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black54),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Container(
-                            color: white,
-                            padding: EdgeInsets.all(padding8),
-                            child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start
-                            ,children: [
-                                Utils.customText(
-                                  text: "らくらくメルカリ便",
-                                  size: normalTextSize,
-                                  color: black,
-                                ),
-                              Container(
-                                margin: EdgeInsets.only(top: 4.0),
-                                color: Colors.black54,
-                                padding:EdgeInsets.all(4.0),
-                                child: Utils.customText(
+                            Container(
+                              margin: EdgeInsets.only(top: 4.0),
+                              color: Colors.black54,
+                              padding: EdgeInsets.all(4.0),
+                              child: Utils.customText(
                                   text: "匿名配送",
                                   color: white,
                                   fontWeight: FontWeight.bold,
-                                  size: 9.0
-                                ),
-                              )
+                                  size: 9.0),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                    color: Color(0xF5F5F5),
+                    border:
+                        Border(top: BorderSide(width: 0.5, color: black12))),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Utils.customText(
+                          text: "発送元の地域",
+                          size: normalTextSize,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: Container(
+                        color: white,
+                        padding: EdgeInsets.all(padding8),
+                        child: Utils.customText(
+                          text: "大阪府",
+                          size: normalTextSize,
+                          color: black,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                    color: Color(0xF5F5F5),
+                    border:
+                        Border(top: BorderSide(width: 0.5, color: black12))),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Utils.customText(
+                          text: "発送までの日数",
+                          size: normalTextSize,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: Container(
+                        color: white,
+                        padding: EdgeInsets.all(padding8),
+                        child: Utils.customText(
+                          text: "2~3日で発送",
+                          size: normalTextSize,
+                          color: black,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: defaultPadding, vertical: padding8),
+                decoration: BoxDecoration(
+                    color: white,
+                    border:
+                        Border(top: BorderSide(width: 0.5, color: black12))),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.lock,
+                      color: Colors.yellow,
+                      size: 24,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Utils.customText(
+                            text: "メルカリ安心への取り組み",
+                            size: normalTextSize,
+                            fontWeight: FontWeight.bold,
+                            color: black),
+                        Utils.customText(
+                            text: "お金は事務局に支払われ、評価後に振り込まれます",
+                            size: smallSubtileSize,
+                            color: Colors.black54)
+                      ],
+                    ),
+                    Spacer(),
+                    Icon(
+                      Icons.navigate_next,
+                      color: Colors.red,
+                      size: 25,
+                    )
+                  ],
+                ),
+              )
+            ])),
+            SliverToBoxAdapter(
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+                color: black12,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: defaultPadding),
+                      child: Utils.customText(
+                          text: "出品者",
+                          color: Colors.black54,
+                          size: normalTextSize),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: padding8),
+                      color: white,
+                      height: 60,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: defaultPadding, vertical: padding8),
+                      child: Row(
+                        children: [
+                          Container(
+                              decoration: BoxDecoration(shape: BoxShape.circle),
+                              child: Image.asset(
+                                "assets/images/profile_icon.png",
+                                height: 40,
+                                width: 40,
+                                fit: BoxFit.cover,
+                              )),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Utils.customText(
+                                    text: "チュオン ",
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    size: normalTextSize),
+                                Row(
+                                  children: [
+                                    RatingBar(
+                                        itemSize: 15,
+                                        initialRating: 5,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        ratingWidget: RatingWidget(
+                                            full: const Icon(
+                                              Icons.star,
+                                              color: Colors.orange,
+                                            ),
+                                            half: const Icon(
+                                              Icons.star_half,
+                                              color: Colors.orange,
+                                            ),
+                                            empty: const Icon(
+                                              Icons.star_outline,
+                                              color: Colors.orange,
+                                            )),
+                                        onRatingUpdate: (value) {}),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 4.0),
+                                      child: Text(
+                                        "20",
+                                        style: TextStyle(
+                                            fontSize: normalTextSize,
+                                            decoration:
+                                                TextDecoration.underline,
+                                            color: Colors.blueAccent),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: defaultPadding),
+                                      child: Icon(
+                                        Icons.check_circle_rounded,
+                                        size: 15,
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                                    Utils.customText(
+                                        text: "本人確認済", size: normalTextSize)
+                                  ],
+                                )
                               ],
                             ),
                           ),
-                        )
-                      ],
+                          Spacer(),
+                          Icon(
+                            Icons.navigate_next,
+                            color: Colors.red,
+                            size: 25,
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    decoration: BoxDecoration(
-                        color: Color(0xF5F5F5),
-                        border: Border(top: BorderSide(width: 0.5,color: black12))
+                    Padding(
+                      padding: EdgeInsets.only(top: defaultPadding,left: defaultPadding),
+                      child: Utils.customText(
+                          text: "コメント",
+                          color: Colors.black54,
+                          size: normalTextSize),
                     ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Utils.customText(
-                              text: "発送元の地域",
-                              size: normalTextSize,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black54),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Container(
-                            color: white,
-                            padding: EdgeInsets.all(padding8),
-                            child: Utils.customText(
-                              text: "大阪府",
-                              size: normalTextSize,
-                              color: black,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    decoration: BoxDecoration(
-                        color: Color(0xF5F5F5),
-                        border: Border(top: BorderSide(width: 0.5,color: black12))
-                    ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Utils.customText(
-                              text: "発送までの日数",
-                              size: normalTextSize,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black54),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Container(
-                            color: white,
-                            padding: EdgeInsets.all(padding8),
-                            child: Utils.customText(
-                              text: "2~3日で発送",
-                              size: normalTextSize,
-                              color: black,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: defaultPadding,vertical: padding8),
-                    decoration: BoxDecoration(
-                        color: white,
-                        border: Border(top: BorderSide(width: 0.5,color: black12))
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(Icons.lock,color: Colors.yellow,size: 24,),
-                        Expanded(flex: 20,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Utils.customText(
-                                text: "メルカリ安心への取り組み",
-                                size: normalTextSize,
-                                fontWeight: FontWeight.bold,
-                                color: black
-                              ),
-                      Utils.customText(
-                            text: "お金は事務局に支払われ、評価後に振り込まれます",
-                            size: smallSubtileSize,
-                            color: Colors.black54
-                      )
-                            ],
-                          ),
-                        ),
-                        Expanded(flex: 1,child: Icon(Icons.navigate_next,color: Colors.red,size: 25,))
-                      ],
-                    ),
-                  )
-            ]))
+
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
         StreamBuilder(
@@ -508,14 +623,14 @@ class _ItemDetails extends State<ItemDetails> {
                 isShow = snapshot.data as bool;
               }
               return Container(
-                padding: EdgeInsets.only(top: 70),
+                padding: EdgeInsets.only(top: size.height / 40),
                 decoration: BoxDecoration(
                     color: isShow ? white : Colors.transparent,
                     border: Border(
                         bottom: BorderSide(
                             width: 0.5,
                             color: isShow ? black12 : Colors.transparent))),
-                height: size.height / 6.8,
+                height: size.height / 10,
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Stack(
