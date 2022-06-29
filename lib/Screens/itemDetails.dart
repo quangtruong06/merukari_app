@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:merukari_app/Utils/Utils.dart';
+import 'package:merukari_app/Utils/gridList.dart';
 import 'package:merukari_app/Utils/imageItem.dart';
 import 'package:merukari_app/constants.dart';
 import '../Utils/bloc/Bloc.dart';
@@ -13,9 +14,8 @@ class ItemDetails extends StatefulWidget {
     return _ItemDetails();
   }
 }
-
 class _ItemDetails extends State<ItemDetails> {
-  ScrollController _scrollController = new ScrollController();
+  final ScrollController _scrollController = new ScrollController();
   bool isShowHeader = false;
 
   @override
@@ -41,6 +41,7 @@ class _ItemDetails extends State<ItemDetails> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: white,
       body: Stack(children: [
         CustomScrollView(
           controller: _scrollController,
@@ -50,11 +51,10 @@ class _ItemDetails extends State<ItemDetails> {
                 size: size,
               ),
             ),
-            SliverPadding(
-              padding: EdgeInsets.only(
-                  left: defaultPadding, top: padding8, right: defaultPadding),
-              sliver: SliverToBoxAdapter(
-                child: Container(
+                SliverToBoxAdapter(
+                child: Container(padding: EdgeInsets.only(
+                    left: defaultPadding, top: padding8, right: defaultPadding),
+                  color: white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -132,8 +132,8 @@ class _ItemDetails extends State<ItemDetails> {
                                     color: Colors.black54),
                               ],
                             ),
-                          ),Spacer(),
-
+                          ),
+                          Spacer(),
                           IconButton(
                               onPressed: () {},
                               icon: Icon(
@@ -173,7 +173,6 @@ class _ItemDetails extends State<ItemDetails> {
                   ),
                 ),
               ),
-            ),
             SliverToBoxAdapter(
               child: Container(
                 color: black12,
@@ -502,115 +501,22 @@ class _ItemDetails extends State<ItemDetails> {
                 ),
               )
             ])),
+            SellerAndComment(size: size),
             SliverToBoxAdapter(
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+                padding: const EdgeInsets.only(
+                    left: defaultPadding, bottom: defaultPadding),
                 color: black12,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: defaultPadding),
-                      child: Utils.customText(
-                          text: "出品者",
-                          color: Colors.black54,
-                          size: normalTextSize),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: padding8),
-                      color: white,
-                      height: 60,
-                      padding: EdgeInsets.symmetric(
-                          horizontal: defaultPadding, vertical: padding8),
-                      child: Row(
-                        children: [
-                          Container(
-                              decoration: BoxDecoration(shape: BoxShape.circle),
-                              child: Image.asset(
-                                "assets/images/profile_icon.png",
-                                height: 40,
-                                width: 40,
-                                fit: BoxFit.cover,
-                              )),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Utils.customText(
-                                    text: "チュオン ",
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    size: normalTextSize),
-                                Row(
-                                  children: [
-                                    RatingBar(
-                                        itemSize: 15,
-                                        initialRating: 5,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemCount: 5,
-                                        ratingWidget: RatingWidget(
-                                            full: const Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            half: const Icon(
-                                              Icons.star_half,
-                                              color: Colors.orange,
-                                            ),
-                                            empty: const Icon(
-                                              Icons.star_outline,
-                                              color: Colors.orange,
-                                            )),
-                                        onRatingUpdate: (value) {}),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 4.0),
-                                      child: Text(
-                                        "20",
-                                        style: TextStyle(
-                                            fontSize: normalTextSize,
-                                            decoration:
-                                                TextDecoration.underline,
-                                            color: Colors.blueAccent),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: defaultPadding),
-                                      child: Icon(
-                                        Icons.check_circle_rounded,
-                                        size: 15,
-                                        color: Colors.green,
-                                      ),
-                                    ),
-                                    Utils.customText(
-                                        text: "本人確認済", size: normalTextSize)
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                          Spacer(),
-                          Icon(
-                            Icons.navigate_next,
-                            color: Colors.red,
-                            size: 25,
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: defaultPadding,left: defaultPadding),
-                      child: Utils.customText(
-                          text: "コメント",
-                          color: Colors.black54,
-                          size: normalTextSize),
-                    ),
-
-                  ],
-                ),
+                child: Utils.customText(
+                    text: "この商品を見ている人におすすめ",
+                    color: Colors.black54,
+                    size: normalTextSize),
+              ),
+            ),
+            SliverPadding(
+              padding: EdgeInsets.symmetric(vertical: defaultPadding),
+              sliver: gridList(
+                itemGridCount: 50,
               ),
             ),
           ],
@@ -672,6 +578,195 @@ class _ItemDetails extends State<ItemDetails> {
               );
             }),
       ]),
+    );
+  }
+}
+
+class SellerAndComment extends StatelessWidget {
+  const SellerAndComment({
+    Key? key,
+    required this.size,
+  }) : super(key: key);
+
+  final size;
+
+  @override
+  Widget build(BuildContext context) {
+    List commentData = [
+      {
+        "img": "assets/images/profile_icon.png",
+        "name": "assets/images/profile_icon.png",
+        "comment": "assets/images/profile_icon.png",
+      },
+    ];
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+        color: black12,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: defaultPadding),
+              child: Utils.customText(
+                  text: "出品者", color: Colors.black54, size: normalTextSize),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: padding8),
+              color: white,
+              height: 60,
+              padding: EdgeInsets.symmetric(
+                  horizontal: defaultPadding, vertical: padding8),
+              child: Row(
+                children: [
+                  Container(
+                      decoration: BoxDecoration(shape: BoxShape.circle),
+                      child: Image.asset(
+                        "assets/images/profile_icon.png",
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Utils.customText(
+                            text: "チュオン ",
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            size: normalTextSize),
+                        Row(
+                          children: [
+                            RatingBar(
+                                itemSize: 15,
+                                initialRating: 5,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                itemCount: 5,
+                                ratingWidget: RatingWidget(
+                                    full: const Icon(
+                                      Icons.star,
+                                      color: Colors.orange,
+                                    ),
+                                    half: const Icon(
+                                      Icons.star_half,
+                                      color: Colors.orange,
+                                    ),
+                                    empty: const Icon(
+                                      Icons.star_outline,
+                                      color: Colors.orange,
+                                    )),
+                                onRatingUpdate: (value) {}),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 4.0),
+                              child: Text(
+                                "20",
+                                style: TextStyle(
+                                    fontSize: normalTextSize,
+                                    decoration: TextDecoration.underline,
+                                    color: Colors.blueAccent),
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(left: defaultPadding),
+                              child: Icon(
+                                Icons.check_circle_rounded,
+                                size: 15,
+                                color: Colors.green,
+                              ),
+                            ),
+                            Utils.customText(
+                                text: "本人確認済", size: normalTextSize)
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                  Icon(
+                    Icons.navigate_next,
+                    color: Colors.red,
+                    size: 25,
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding:
+                  EdgeInsets.only(top: defaultPadding, left: defaultPadding),
+              child: Utils.customText(
+                  text: "コメント", color: Colors.black54, size: normalTextSize),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: padding8, left: defaultPadding),
+              child: Row(
+                children: [
+                  Container(
+                      decoration: BoxDecoration(shape: BoxShape.circle),
+                      child: Image.asset(
+                        "assets/images/profile_icon.png",
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 4.0),
+                          child: Utils.customText(
+                              text: "マイ",
+                              fontWeight: FontWeight.bold,
+                              size: normalTextSize,
+                              color: Colors.black54),
+                        ),
+                        Container(
+                          width: size.width / 1.3,
+                          padding: EdgeInsets.all(padding8),
+                          decoration: const BoxDecoration(
+                              color: white,
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(5.0),
+                                bottomRight: Radius.circular(5.0),
+                                bottomLeft: Radius.circular(5.0),
+                              )),
+                          child: Utils.customText(
+                              text: "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+                              size: normalTextSize,
+                              color: black),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Center(
+              child: Container(
+                width: size.width / 1.5,
+                padding: EdgeInsets.symmetric(vertical: defaultPadding),
+                color: Colors.black26,
+                margin: EdgeInsets.symmetric(vertical: defaultPadding),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.mode_comment_outlined,
+                      size: 20,
+                    ),
+                    Utils.customText(text: "全てのコメントを見る", size: normalTextSize)
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
