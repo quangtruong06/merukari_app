@@ -1,7 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:merukari_app/Mini_Screens/all_comment.dart';
 import 'package:merukari_app/Utils/Utils.dart';
 import 'package:merukari_app/Utils/gridList.dart';
 import 'package:merukari_app/Utils/imageItem.dart';
@@ -9,11 +8,14 @@ import 'package:merukari_app/constants.dart';
 import '../Utils/bloc/Bloc.dart';
 
 class ItemDetails extends StatefulWidget {
+  const ItemDetails({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _ItemDetails();
   }
 }
+
 class _ItemDetails extends State<ItemDetails> {
   final ScrollController _scrollController = new ScrollController();
   bool isShowHeader = false;
@@ -51,128 +53,129 @@ class _ItemDetails extends State<ItemDetails> {
                 size: size,
               ),
             ),
-                SliverToBoxAdapter(
-                child: Container(padding: EdgeInsets.only(
+            SliverToBoxAdapter(
+              child: Container(
+                padding: EdgeInsets.only(
                     left: defaultPadding, top: padding8, right: defaultPadding),
-                  color: white,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Utils.customText(
-                          text: "PS4 ドラゴンクエストX いばらの巫女と滅びの神",
-                          fontWeight: FontWeight.bold,
-                          size: normalTextSize),
-                      Utils.customText(
-                          text: "プレイステーション4",
-                          size: smallSubtileSize,
-                          color: Colors.black54),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: RichText(
-                            text: TextSpan(children: [
-                          const TextSpan(
-                              text: "¥2680",
-                              style: TextStyle(
-                                  color: Color(0xFFd91e18),
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 30.0)),
-                          WidgetSpan(
-                              child: Padding(
-                            padding: EdgeInsets.only(left: 4.0),
-                            child: Utils.customText(
-                                text: "送料込み",
-                                size: smallSubtileSize,
-                                color: Colors.black54),
-                          ))
-                        ])),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            width: size.width / 4.2,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                color: black12,
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.favorite_outlined,
-                                  color: Color(0xFFd91e18),
-                                  size: 20,
-                                ),
-                                Utils.customText(
-                                    text: "いいね！",
-                                    size: normalTextSize,
-                                    color: Colors.black54)
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(left: 16),
-                            width: size.width / 4.2,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                color: black12,
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.mode_comment_outlined,
-                                  color: Colors.black54,
-                                  size: 20,
-                                ),
-                                Utils.customText(
-                                    text: "コメント",
-                                    size: normalTextSize,
-                                    color: Colors.black54),
-                              ],
-                            ),
-                          ),
-                          Spacer(),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.more_horiz,
+                color: white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Utils.customText(
+                        text: "PS4 ドラゴンクエストX いばらの巫女と滅びの神",
+                        fontWeight: FontWeight.bold,
+                        size: normalTextSize),
+                    Utils.customText(
+                        text: "プレイステーション4",
+                        size: smallSubtileSize,
+                        color: Colors.black54),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: RichText(
+                          text: TextSpan(children: [
+                        const TextSpan(
+                            text: "¥2680",
+                            style: TextStyle(
+                                color: Color(0xFFd91e18),
+                                fontWeight: FontWeight.normal,
+                                fontSize: 30.0)),
+                        WidgetSpan(
+                            child: Padding(
+                          padding: EdgeInsets.only(left: 4.0),
+                          child: Utils.customText(
+                              text: "送料込み",
+                              size: smallSubtileSize,
+                              color: Colors.black54),
+                        ))
+                      ])),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          width: size.width / 4.2,
+                          height: 30,
+                          decoration: BoxDecoration(
+                              color: black12,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.favorite_outlined,
+                                color: Color(0xFFd91e18),
                                 size: 20,
-                                color: Colors.black54,
-                              ))
-                        ],
-                      ),
-                      Divider(
-                        height: defaultPadding,
-                        thickness: 1,
-                        color: Colors.black12,
-                      ),
-                      Utils.customText(
-                          text: "この商品を見ている人におすすめ",
-                          size: normalTextSize,
-                          color: Colors.black54),
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: defaultPadding),
-                        height: size.height / 9,
-                        child: ListView.builder(
-                          itemBuilder: (context, index) {
-                            return Container(
-                                width: size.height / 9,
-                                margin: EdgeInsets.only(right: 10),
-                                child: imageItem(
-                                  imgSize: size.height / 9,
-                                  itemValue: 2500,
-                                ));
-                          },
-                          itemCount: 20,
-                          scrollDirection: Axis.horizontal,
+                              ),
+                              Utils.customText(
+                                  text: "いいね！",
+                                  size: normalTextSize,
+                                  color: Colors.black54)
+                            ],
+                          ),
                         ),
-                      )
-                    ],
-                  ),
+                        Container(
+                          margin: EdgeInsets.only(left: 16),
+                          width: size.width / 4.2,
+                          height: 30,
+                          decoration: BoxDecoration(
+                              color: black12,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.mode_comment_outlined,
+                                color: Colors.black54,
+                                size: 20,
+                              ),
+                              Utils.customText(
+                                  text: "コメント",
+                                  size: normalTextSize,
+                                  color: Colors.black54),
+                            ],
+                          ),
+                        ),
+                        Spacer(),
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.more_horiz,
+                              size: 20,
+                              color: Colors.black54,
+                            ))
+                      ],
+                    ),
+                    Divider(
+                      height: defaultPadding,
+                      thickness: 1,
+                      color: Colors.black12,
+                    ),
+                    Utils.customText(
+                        text: "この商品を見ている人におすすめ",
+                        size: normalTextSize,
+                        color: Colors.black54),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: defaultPadding),
+                      height: size.height / 9,
+                      child: ListView.builder(
+                        itemBuilder: (context, index) {
+                          return Container(
+                              width: size.height / 9,
+                              margin: EdgeInsets.only(right: 10),
+                              child: imageItem(
+                                imgSize: size.height / 9,
+                                itemValue: 2500,
+                              ));
+                        },
+                        itemCount: 20,
+                        scrollDirection: Axis.horizontal,
+                      ),
+                    )
+                  ],
                 ),
               ),
+            ),
             SliverToBoxAdapter(
               child: Container(
                 color: black12,
@@ -583,22 +586,36 @@ class _ItemDetails extends State<ItemDetails> {
 }
 
 class SellerAndComment extends StatelessWidget {
-  const SellerAndComment({
+  SellerAndComment({
     Key? key,
     required this.size,
   }) : super(key: key);
-
   final size;
+  List commentData = [
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Mai",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Kien",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Kien",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Kien",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
-    List commentData = [
-      {
-        "img": "assets/images/profile_icon.png",
-        "name": "assets/images/profile_icon.png",
-        "comment": "assets/images/profile_icon.png",
-      },
-    ];
     return SliverToBoxAdapter(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: defaultPadding),
@@ -700,70 +717,7 @@ class SellerAndComment extends StatelessWidget {
               child: Utils.customText(
                   text: "コメント", color: Colors.black54, size: normalTextSize),
             ),
-            Container(
-              margin: EdgeInsets.only(top: padding8, left: defaultPadding),
-              child: Row(
-                children: [
-                  Container(
-                      decoration: BoxDecoration(shape: BoxShape.circle),
-                      child: Image.asset(
-                        "assets/images/profile_icon.png",
-                        height: 40,
-                        width: 40,
-                        fit: BoxFit.cover,
-                      )),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 4.0),
-                          child: Utils.customText(
-                              text: "マイ",
-                              fontWeight: FontWeight.bold,
-                              size: normalTextSize,
-                              color: Colors.black54),
-                        ),
-                        Container(
-                          width: size.width / 1.3,
-                          padding: EdgeInsets.all(padding8),
-                          decoration: const BoxDecoration(
-                              color: white,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(5.0),
-                                bottomRight: Radius.circular(5.0),
-                                bottomLeft: Radius.circular(5.0),
-                              )),
-                          child: Utils.customText(
-                              text: "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
-                              size: normalTextSize,
-                              color: black),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Center(
-              child: Container(
-                width: size.width / 1.5,
-                padding: EdgeInsets.symmetric(vertical: defaultPadding),
-                color: Colors.black26,
-                margin: EdgeInsets.symmetric(vertical: defaultPadding),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.mode_comment_outlined,
-                      size: 20,
-                    ),
-                    Utils.customText(text: "全てのコメントを見る", size: normalTextSize)
-                  ],
-                ),
-              ),
-            )
+           CommentWideget(),
           ],
         ),
       ),
@@ -901,6 +855,144 @@ class ImageDot extends StatelessWidget {
           color: isActive ? white : Colors.black, shape: BoxShape.circle),
       width: 8,
       height: 8,
+    );
+  }
+}
+
+class CommentWideget extends StatelessWidget {
+  bool? isScreen;
+  CommentWideget({this.isScreen});
+  List commentData = [
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Mai",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Kien",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Kien",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Kien",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Kien",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Kien",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Kien",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+    {
+      "img": "assets/images/profile_icon.png",
+      "name": "Kien",
+      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    var length = (commentData.length > 3 ? 3 : commentData.length);
+    if(isScreen!){
+      length = commentData.length;
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        for (var i = 0;
+        i < length;i++)
+          Container(
+            margin: EdgeInsets.only(top: padding8, left: defaultPadding),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                    width: 40,
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    child: Image.asset(
+                      commentData[i]["img"],
+                      height: 40,
+                      width: 40,
+                      fit: BoxFit.cover,
+                    )),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: Utils.customText(
+                            text: commentData[i]["name"],
+                            fontWeight: FontWeight.bold,
+                            size: normalTextSize,
+                            color: Colors.black54),
+                      ),
+                      Container(
+
+                        padding: EdgeInsets.all(padding8),
+                        decoration: const BoxDecoration(
+                            color: white,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(5.0),
+                              bottomRight: Radius.circular(5.0),
+                              bottomLeft: Radius.circular(5.0),
+                            )),
+                        child: Utils.customText(
+                            text: commentData[i]["comment"],
+                            size: normalTextSize,
+                            color: black),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        if(!isScreen!)
+        GestureDetector(
+          onTap: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AllComments()),
+            );
+          },
+          child: Center(
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: defaultPadding),
+              color: Colors.black26,
+              margin: EdgeInsets.symmetric(vertical: defaultPadding),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.mode_comment_outlined,
+                    size: 20,
+                  ),
+                  Utils.customText(
+                      text: commentData.length >= 3 ? "全てのコメントを見る" : "コメントする",
+                      size: normalTextSize)
+                ],
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
