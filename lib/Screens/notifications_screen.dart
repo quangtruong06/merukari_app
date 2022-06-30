@@ -102,7 +102,6 @@ class NewsList extends StatelessWidget {
               decoration: const BoxDecoration(
                   border: Border(
                       bottom: BorderSide(width: 1, color: black12))),
-              height: size.height/9,
               child: Column(
                 children: [
                   Container(
@@ -112,9 +111,9 @@ class NewsList extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Utils.customText(
-                            text: "【6月2日追記】【重要】メルペイの一部お問い合わせ窓口について", line: 2),
+                            text: "【6月2日追記】【重要】メルペイの一部お問い合わせ窓口について", line: 2,size: normalTextSize),
                         Utils.customText(
-                            text: "2022年6月2日　19:13", color: Colors.black54),
+                            text: "2022年6月2日　19:13", color: Colors.black54,size: smallSubtileSize),
                       ],
                     ),
                   ),
@@ -130,16 +129,19 @@ class NotificationsList extends StatelessWidget {
   final Size size ;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: defaultPadding),
-      child: ListView.builder(
-          itemCount: 20,
+    return Container(
+      color: black12,
+      child: Container(
+        margin: EdgeInsets.only(top: defaultPadding),
+        child: ListView.builder(
+          itemCount: 30,
           itemBuilder: (BuildContext context, int index) {
             return Container(
+              padding: EdgeInsets.all(4.0),
               decoration: const BoxDecoration(
+                  color: white,
                   border: Border(
                       bottom: BorderSide(width: 1, color: black12))),
-              height: size.height/9,
               child: Row(
                 children: [
                   Image.asset(
@@ -154,8 +156,16 @@ class NotificationsList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Utils.customText(
-                              text: "事務局から個別メッセージ「Facebookログイン通知", line: 2),
-                          Utils.customText(text: "8秒前", color: Colors.black54),
+                              text: "事務局から個別メッセージ「Facebookログイン通知", line: 2,size: normalTextSize),
+                          Padding(
+                            padding: const EdgeInsets.only(top: padding8),
+                            child: Row(
+                              children: [
+                                Icon(Icons.access_time,color: Colors.black54,size: 13),
+                                Utils.customText(text: "8秒前", color: Colors.black54,size: smallSubtileSize),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -163,7 +173,8 @@ class NotificationsList extends StatelessWidget {
                 ],
               ),
             );
-          }),
+          },),
+      ),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:merukari_app/Mini_Screens/mairisuto_screen.dart';
 import 'package:merukari_app/Mini_Screens/pikkuappu_screen.dart';
 import 'package:merukari_app/Mini_Screens/shoppu_screen.dart';
 import 'package:merukari_app/Mini_Screens/susume_screen.dart';
+import 'package:merukari_app/Mini_Screens/yarukoto_screen.dart';
 import 'package:merukari_app/constants.dart';
 import '../Utils/DataSearch.dart';
 
@@ -17,6 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePage extends State<HomePage> {
   List tabsText = ["マイリスト", "おすすめ", "ショップ", "ピックアップ"];
   List tabView = [Mairisuto(), Susume(), Shoppu(), Pikkuappu()];
+
   List<Tab> tabMaker() {
     List<Tab> tabs = [];
     for (var i = 0; i < tabsText.length; i++) {
@@ -34,7 +36,7 @@ class _HomePage extends State<HomePage> {
       initialIndex: 1,
       child: Scaffold(
         appBar: AppBar(
-            backgroundColor:white,
+            backgroundColor: white,
             title: Container(
               height: 35,
               child: TextField(
@@ -64,14 +66,20 @@ class _HomePage extends State<HomePage> {
                 cursorWidth: 0,
               ),
             ),
-            actions: [
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(
+            actions:  [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Yarukoto()));
+                  },
+                  child: Icon(
                     Icons.check,
                     color: Colors.black,
                     size: 30,
-                  ))
+                  ),
+                ),
+              )
             ],
             bottom: TabBar(
               tabs: tabMaker(),
