@@ -24,7 +24,6 @@ class AllComments extends StatelessWidget {
       elevation: 0.5,),
       body: Stack(children: [
         Container(
-          color: Colors.black12,
           child: Column(
             children: [
               Container(
@@ -54,9 +53,12 @@ class AllComments extends StatelessWidget {
               ),
               Expanded(
                 child: SingleChildScrollView(
-                  child: CommentWidget(
-                    isAllScreen: true,
-                    size: size,
+                  child: Container(
+                    color: Colors.black12,
+                    child: CommentWidget(
+                      isAllScreen: true,
+                      size: size,
+                    ),
                   ),
                 ),
               ),
@@ -66,6 +68,8 @@ class AllComments extends StatelessWidget {
         Positioned(
           bottom: 0,
           child: Container(
+            padding: EdgeInsets.symmetric(vertical: defaultPadding),
+            color: Colors.white,
             child: Column(
               children: [
                 Container(
