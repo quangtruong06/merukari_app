@@ -66,7 +66,6 @@ class AllComments extends StatelessWidget {
         Positioned(
           bottom: 0,
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
             child: Column(
               children: [
                 Container(
@@ -101,7 +100,6 @@ class AllComments extends StatelessWidget {
                             color: Colors.black12,
                             child: TextField(
                               textAlignVertical: TextAlignVertical.center,
-                              maxLength: 1000,
                               decoration: InputDecoration(
                                 contentPadding: EdgeInsets.only(left: 8.0),
                                   focusedBorder: OutlineInputBorder(
