@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:merukari_app/Mini_Screens/all_comment.dart';
+import 'package:merukari_app/Mini_Screens/all_comment_screen.dart';
 import 'package:merukari_app/Utils/Utils.dart';
 import 'package:merukari_app/Utils/gridList.dart';
 import 'package:merukari_app/Utils/imageItem.dart';
@@ -15,7 +15,6 @@ class ItemDetails extends StatefulWidget {
     return _ItemDetails();
   }
 }
-
 class _ItemDetails extends State<ItemDetails> {
   final ScrollController _scrollController = new ScrollController();
   bool isShowHeader = false;
@@ -717,7 +716,7 @@ class SellerAndComment extends StatelessWidget {
               child: Utils.customText(
                   text: "コメント", color: Colors.black54, size: normalTextSize),
             ),
-           CommentWideget(),
+           CommentWidget(isAllScreen: false, size: size,),
           ],
         ),
       ),
@@ -858,30 +857,30 @@ class ImageDot extends StatelessWidget {
     );
   }
 }
-
-class CommentWideget extends StatelessWidget {
-  bool? isScreen;
-  CommentWideget({this.isScreen});
+class CommentWidget extends StatelessWidget {
+  bool isAllScreen=true;
+  CommentWidget({required this.isAllScreen, required this.size});
+  final Size size;
   List commentData = [
     {
       "img": "assets/images/profile_icon.png",
-      "name": "Mai",
+      "name": "キエン",
       "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
     },
     {
       "img": "assets/images/profile_icon.png",
-      "name": "Kien",
-      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+      "name": "マイ",
+      "comment": "こんにちは！",
     },
     {
       "img": "assets/images/profile_icon.png",
-      "name": "Kien",
-      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+      "name": "チュオン",
+      "comment": "Can i bought it?",
     },
     {
       "img": "assets/images/profile_icon.png",
-      "name": "Kien",
-      "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
+      "name": "Kotaro",
+      "comment": "1 yen。",
     },
     {
       "img": "assets/images/profile_icon.png",
@@ -904,11 +903,10 @@ class CommentWideget extends StatelessWidget {
       "comment": "コメント失礼します。\n2500円は可能でしょうか?\nご検討お願い致します。",
     },
   ];
-
   @override
   Widget build(BuildContext context) {
     var length = (commentData.length > 3 ? 3 : commentData.length);
-    if(isScreen!){
+    if(isAllScreen){
       length = commentData.length;
     }
     return Column(
@@ -944,7 +942,7 @@ class CommentWideget extends StatelessWidget {
                             color: Colors.black54),
                       ),
                       Container(
-
+                        width: size.width-80,
                         padding: EdgeInsets.all(padding8),
                         decoration: const BoxDecoration(
                             color: white,
@@ -953,10 +951,27 @@ class CommentWideget extends StatelessWidget {
                               bottomRight: Radius.circular(5.0),
                               bottomLeft: Radius.circular(5.0),
                             )),
-                        child: Utils.customText(
-                            text: commentData[i]["comment"],
-                            size: normalTextSize,
-                            color: black),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Utils.customText(
+                                text: commentData[i]["comment"],
+                                size: normalTextSize,
+                                color: black),
+
+                            Padding(
+                              padding: const EdgeInsets.only(top:4.0),
+                              child: RichText(text: TextSpan(
+                                children: [
+                                  WidgetSpan(child: Icon(Icons.access_time,color: Colors.black54,size: 13,)),
+                                  TextSpan(
+                                    text: "1分前",style: TextStyle(fontSize: smallSubtileSize,color: Colors.black54)
+                                  )
+                                ]
+                              )),
+                            )
+                          ],
+                        ),
                       )
                     ],
                   ),
@@ -964,7 +979,7 @@ class CommentWideget extends StatelessWidget {
               ],
             ),
           ),
-        if(!isScreen!)
+        if(!isAllScreen)
         GestureDetector(
           onTap: (){
             Navigator.push(
@@ -974,6 +989,7 @@ class CommentWideget extends StatelessWidget {
           },
           child: Center(
             child: Container(
+              width: size.width-128,
               padding: EdgeInsets.symmetric(vertical: defaultPadding),
               color: Colors.black26,
               margin: EdgeInsets.symmetric(vertical: defaultPadding),
