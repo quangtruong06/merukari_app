@@ -5,6 +5,9 @@ import 'package:merukari_app/constants.dart';
 import '../Utils/Utils.dart';
 
 class AllComments extends StatelessWidget {
+  List susumeComment =[
+    ""
+  ];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -98,7 +101,7 @@ class AllComments extends StatelessWidget {
                             color: Colors.black12,
                             child: TextField(
                               textAlignVertical: TextAlignVertical.center,
-                              maxLines: 1,
+                              maxLength: 1000,
                               decoration: InputDecoration(
                                 contentPadding: EdgeInsets.only(left: 8.0),
                                   focusedBorder: OutlineInputBorder(

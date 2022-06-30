@@ -112,27 +112,32 @@ class _ItemDetails extends State<ItemDetails> {
                             ],
                           ),
                         ),
-                        Container(
-                          margin: EdgeInsets.only(left: 16),
-                          width: size.width / 4.2,
-                          height: 30,
-                          decoration: BoxDecoration(
-                              color: black12,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.mode_comment_outlined,
-                                color: Colors.black54,
-                                size: 20,
-                              ),
-                              Utils.customText(
-                                  text: "コメント",
-                                  size: normalTextSize,
-                                  color: Colors.black54),
-                            ],
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>AllComments()));
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(left: 16),
+                            width: size.width / 4.2,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                color: black12,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.mode_comment_outlined,
+                                  color: Colors.black54,
+                                  size: 20,
+                                ),
+                                Utils.customText(
+                                    text: "コメント",
+                                    size: normalTextSize,
+                                    color: Colors.black54),
+                              ],
+                            ),
                           ),
                         ),
                         Spacer(),
