@@ -68,8 +68,8 @@ class AllComments extends StatelessWidget {
         Positioned(
           bottom: 0,
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: defaultPadding),
-            color: Colors.white,
+            padding: EdgeInsets.only(top: defaultPadding),
+          color: Color(0xFFEEEEEE),
             child: Column(
               children: [
                 Container(
@@ -81,7 +81,7 @@ class AllComments extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 8.0),
                     height: 20,
                     decoration: BoxDecoration(
-                      color: Color(0xFFDDDDDD),
+                      color: Colors.grey,
                       borderRadius: BorderRadius.circular(20)
                     ),
                     child: Center(child: Utils.customText(text: "お下げをお願いする",color: black,size: normalTextSize,fontWeight: FontWeight.bold)),
@@ -89,6 +89,7 @@ class AllComments extends StatelessWidget {
                 },itemCount: 5,scrollDirection: Axis.horizontal,),),
                 Container(
                   margin: EdgeInsets.only(top: padding8),
+                  color: white,
                   height: 50,
                   width: size.width,
                   child: Row(
@@ -129,7 +130,7 @@ class AllComments extends StatelessWidget {
                       Expanded(
                           flex: 1,
                           child: Container(
-                            color: Color(0xFFDDDDDD),
+                            color: Colors.grey,
                             child: Center(
                               child: Utils.customText(text: "送信",color: white,fontWeight: FontWeight.bold,size: normalTextSize),
                             ),
