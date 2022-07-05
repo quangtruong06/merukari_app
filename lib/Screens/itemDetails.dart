@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:merukari_app/Mini_Screens/all_comment_screen.dart';
@@ -142,7 +143,9 @@ class _ItemDetails extends State<ItemDetails> {
                         ),
                         Spacer(),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showCupertinoModalPopup(context: context, builder: buildActionSheet(context));
+                            },
                             icon: Icon(
                               Icons.more_horiz,
                               size: 20,
@@ -585,6 +588,21 @@ class _ItemDetails extends State<ItemDetails> {
               );
             }),
       ]),
+    );
+  }
+
+  buildActionSheet(BuildContext context) {
+    return CupertinoActionSheet(
+      actions: [
+        CupertinoActionSheetAction(onPressed: (){}, child: Utils.customText(text: "この商品をシェア",color: Colors.blue)),
+        CupertinoActionSheetAction(onPressed: (){}, child: Utils.customText(text: "この商品を事務",color: Colors.red)),
+      ],
+      cancelButton: CupertinoActionSheetAction(
+        child: Utils.customText(text: "この商品を事務",color: Colors.blue,fontWeight: FontWeight.bold),
+        onPressed: (){
+          Navigator.pop(context);
+        },
+      ),
     );
   }
 }

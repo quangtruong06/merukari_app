@@ -9,4 +9,3 @@ const Color black = Colors.black87;
 const bigTittleSize = 16.0;
 const normalTextSize = 13.0;
 const smallSubtileSize =10.0;
-const IconData heart = IconData(0xf442,);
