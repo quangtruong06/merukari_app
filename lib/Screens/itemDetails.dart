@@ -984,7 +984,7 @@ class CommentWidget extends StatelessWidget {
 
                             Padding(
                               padding: const EdgeInsets.only(top:4.0),
-                              child: RichText(text: TextSpan(
+                              child: RichText(text: const TextSpan(
                                 children: [
                                   WidgetSpan(child: Icon(Icons.access_time,color: Colors.black54,size: 13,)),
                                   TextSpan(
